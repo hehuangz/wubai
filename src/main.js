@@ -28,11 +28,9 @@ import {
   Tab,
   TabItem,
   Group,
-  Cell,
   Confirm,
   CellBox,
   XButton,
-  XAddress,
   Tabbar,
   TabbarItem,
   XTextarea,
@@ -40,6 +38,8 @@ import {
   Countdown
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 // 全局组建
 Vue.component('x-header', XHeader)
 Vue.component('x-img', XImg)
@@ -51,13 +51,11 @@ Vue.component('tab', Tab)
 Vue.component('tab-item', TabItem)
 Vue.component('x-dialog', XDialog)
 Vue.component('group', Group)
-Vue.component('cell', Cell)
 Vue.component('x-button', XButton)
 Vue.component('cell-box', CellBox)
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
 Vue.component('x-textarea', XTextarea)
-Vue.component('x-address', XAddress)
 Vue.component('confirm', Confirm)
 Vue.component('Countdown', Countdown)
 // 插件
@@ -66,6 +64,7 @@ Vue.use(AjaxPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(networkListening)
 Vue.use(vueTap)
+Vue.use(MintUI)
 // 指令
 Vue.directive('transfer-dom', TransferDom)
 // utils.localData.set('uid', 52)

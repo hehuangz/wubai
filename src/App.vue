@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { Button } from 'mint-ui'
 import offline from './pages/offline/index'
 export default {
   name: 'app',
