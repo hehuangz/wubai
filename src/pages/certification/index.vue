@@ -1,5 +1,6 @@
 <template>
   <div class="contents">
+    <com-header title="身份证认证" />
     <mt-cell
       v-for="(item) in list"
       :key="item.title"
@@ -22,9 +23,12 @@
 </template>
 
 <script>
+import comHeader from '@/components/header/header'
 export default {
   name: 'certification',
-  props: {},
+  components: {
+    comHeader
+  },
   data () {
     return {
       isChecked: false,

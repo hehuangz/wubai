@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <com-header title="发工资" />
     <div>home</div>
     <c-adviser />
   </div>
@@ -7,10 +8,13 @@
 <script>
   import cAdviser from './components/adviser'
   import { getData } from '@/api/wages'
+  import comHeader from '@/components/header/header'
+
   export default {
     name: 'wages',
     components: {
-      cAdviser
+      cAdviser,
+      comHeader
     },
     data () {
       return {

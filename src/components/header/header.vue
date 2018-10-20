@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <mt-header fixed :title="title">
-      <div slot="left" @click="onBack">
+      <div slot="left" @click="onBack" v-if="isBack">
         <mt-button icon="back"></mt-button>
       </div>
     </mt-header>
@@ -15,9 +15,20 @@ export default {
   props: {
     title: String
   },
+  data () {
+    return {
+      isBack: true
+    }
+  },
+  mounted () {
+    console.log(window.history.length)
+    if (Number(window.history.length) <= 0) {
+      this.isBack = false
+    }
+  },
   methods: {
     onBack () {
-      this.$router.go(-1)
+      this.$router.back(-1)
     }
   }
 }
