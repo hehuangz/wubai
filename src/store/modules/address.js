@@ -8,7 +8,7 @@ import {
   editAddress,
   getDefaultAddress
 } from '@/api/address'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     serverInfo: {

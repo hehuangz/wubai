@@ -1,7 +1,7 @@
 import vue from 'vue'
 import axios from 'axios'
 // console.log(API)
-const CODE = 200
+const CODE = 1
 /*
  * 移动端 rem 设置 ---- iphone6 1rem === 50px
  * @param { String } grid ===> 将移动端设备宽度分成几份，默认7.5份
@@ -29,8 +29,6 @@ function resErr (code, msg, error) {
 
   return false
 }
-// 手机号码验证
-const phoneExp = /^1[345789]\d{9}$/
 /*
   * @param {DOM Element } args[0] ===> 需要添加 className 的DOM 元素对象
   * @param { String } args[1] ===> 添加的 className
@@ -448,8 +446,8 @@ const obj = {
     error: "请输入正确的电话号码"
   },
   validPostalCode: {
-    regex: /^\d{4}$/,
-    error: "请输入4位短信验证码"
+    regex: /^\d{6}$/,
+    error: "请输入6位短信验证码"
   },
   validZipCode: {
     regex: /^\d{6}$/,
@@ -527,7 +525,6 @@ export default {
   getUseragent,
   rem,
   resErr,
-  phoneExp,
   localData,
   addClass,
   removeClass,

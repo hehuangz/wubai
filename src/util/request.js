@@ -6,13 +6,13 @@ const service = axios.create({
   timeout: 25000
 })
 // request拦截器
-service.interceptors.request.use(config => {
-  config.headers['token'] = utils.localData.get('token')
-  return config
-}, error => {
-  // console.log('requestError: ', error)
-  Promise.reject(error)
-})
+// service.interceptors.request.use(config => {
+//   config.headers['token'] = utils.localData.get('token')
+//   return config
+// }, error => {
+//   // console.log('requestError: ', error)
+//   Promise.reject(error)
+// })
 
 // respone拦截器
 service.interceptors.response.use(

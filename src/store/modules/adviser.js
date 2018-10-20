@@ -1,6 +1,6 @@
 import * as types from './../mutation_types'
 import { searchAssistantByShopId, viewAssistant, usersView, seachShopAssistant } from '@/api/adviser'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     adviserId: '',

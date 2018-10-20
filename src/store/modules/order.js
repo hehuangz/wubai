@@ -24,7 +24,7 @@ import {
   wxgzhGetOpenId,
   wxWeiXinPay
 } from '@/api/order'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     orderTabIndex: '',

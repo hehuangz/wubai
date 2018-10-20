@@ -3,7 +3,7 @@ import * as types from './../mutation_types'
 import {
   addCart, updateCounselor
 } from '@/api/cart'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     serverInfo: {

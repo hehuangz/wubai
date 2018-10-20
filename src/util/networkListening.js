@@ -1,4 +1,3 @@
-import Vue from 'vue'
 function network () {
   // console.log(window.navigator.onLine)
   // return window.navigator.onLine ? '网络正常连接' : '连接断开'

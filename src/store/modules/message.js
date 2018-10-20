@@ -1,7 +1,7 @@
 import * as types from './../mutation_types'
 // import vue from 'vue'
 import {getNewMessage} from '@/api/message'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     // 列表索引

@@ -11,7 +11,7 @@ import {
   recommentGoodsByorderPid,
   getGoodsByShopId
 } from '@/api/goods'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     // 列表索引

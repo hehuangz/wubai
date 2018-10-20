@@ -26,7 +26,7 @@
         <div
           v-else
           class="btn-captcha g-btn g-bg-cccccc"
-        >重新获取{{time}}</div>
+        >重新获取({{time}})</div>
       </mt-field>
     </div>
     <div class="btn-login g-btn-orange-l" @click="handleLogin">登录</div>
@@ -39,43 +39,11 @@
       />
       登录并同意《用户协议》</div>
   </div>
-  <!-- <div class="p-login g-bg-f9f9f9">
-    <img class="_avatar g-flex g-jc-c" :src="IMG_OSS_LOGO"/>
-    <main class="center g-width g-flex g-jc-c g-fw-w">
-      <div class="_item g-bg-white g-flex g-jc-fs g-ai-c">
-        <img :src="IMG_OSS_PHONE" class="_img g-fs-0"/>
-        <input
-          class="__input g-width-80p g-fs-16"
-          type="number"
-          v-model="tel"
-          maxlength="11"
-          placeholder="请输入手机号"
-        />
-      </div>
-      <div class="_item g-bg-white g-flex g-jc-fs g-ai-c g-m-t-10">
-        <img :src="IMG_OSS_LOCK" class="_img g-fs-0"/>
-        <input
-          class="__input g-width-80p g-fs-16"
-          type="number"
-          v-model="code"
-          maxlength="4"
-          placeholder="验证码"
-        />
-        <div class="g-bt-orange-s g-m-r-10" @click="handleCode" v-if="isGetCode">发送验证码</div>
-        <div class="g-bt-gray-s g-m-r-10" v-if="!isGetCode">重新获取({{time}})</div>
-      </div>
-      <div class="g-bt-orange-l g-m-t-30" @click="handleLogin">登录</div>
-      <div class="g-m-t-10 g-fs-12">登录即同意
-        <span class="g-c-orange" @click="handleToAgreement">《吾同用户协议》</span>
-      </div>
-    </main>
-  </div> -->
 </template>
 
 <script>
 import { getCode, toLoginIn } from '@/api/login'
 import Debounce from '@/util/debounce'
-import { Toast } from 'mint-ui'
 let t = null // 发送验证码的60秒定时器
 export default {
   name: 'login',
@@ -87,10 +55,6 @@ export default {
       time: 59,
       isAllow: true
     }
-  },
-  created () {
-  },
-  mounted () {
   },
   methods: {
     handleCaptcha () {
@@ -107,20 +71,21 @@ export default {
       this._onTime() // 重新获取倒计时开始
       Debounce(() => this._onCaptcha(), 1000)
     },
-    _onCaptcha () {
+    async _onCaptcha () {
       let params = {
         phone: this.phone,
         smsType: '8805'
       }
-      // getCode(params).then(({ data: { code, data, message } }) => {
-      //   if (code === 1) {
-      //     console.log(111,'code1')
-      //   } else {
-      //     console.log(222,'!code1')
-      //   }
-      // }).catch(() => {
-      //   console.log(333, 'catch')
-      // })
+      getCode(params).then(({ data: { code, data, message } }) => {
+        console.log(code, data, message)
+        // if (code === 1) {
+        //   console.log(111, 'code1')
+        // } else {
+        //   console.log(222, '!code1')
+        // }
+      }).catch(() => {
+        console.log(333, 'catch')
+      })
     },
     handleLogin () {
       const rules = {
@@ -140,8 +105,17 @@ export default {
       if (!this._onCheck(rules)) return
       Debounce(() => this._onLogin(), 1000)
     },
-    _onLogin () {
-
+    async _onLogin () {
+      let params = {
+        loginName: this.phone,
+        code: this.captcha,
+        source: '3'
+      }
+      toLoginIn(params).then(({ data: { code, data, msg } }) => {
+        console.log(code, data, msg)
+      }).catch(() => {
+        this.$vux.toast.text('网络出错，请稍后重试')
+      })
     },
     _onTime () {
       let t = setInterval(() => {
@@ -156,10 +130,7 @@ export default {
     _onCheck (rules) {
       const resultValidity = this.$utils.dataValidity(rules)
       if (!resultValidity.status) {
-        Toast({
-          message: resultValidity.error,
-          position: 'top'
-        })
+        this.$vux.toast.text(resultValidity.error)
         return false
       }
       return true

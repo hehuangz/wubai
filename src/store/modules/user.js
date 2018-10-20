@@ -3,7 +3,7 @@ import * as types from './../mutation_types'
 import {
   getUser, createCode, userinfoUpdate
 } from '@/api/user'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     serverInfo: {

@@ -6,7 +6,7 @@ import {
   getFQADetail,
   search
 } from '@/api/fqa'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     serverInfo: {

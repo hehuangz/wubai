@@ -1,6 +1,6 @@
 import * as types from './../mutation_types'
 import { shopView } from '@/api/shop'
-const CODE = 200
+const CODE = 1
 export default {
   state: {
     serverInfo: {
