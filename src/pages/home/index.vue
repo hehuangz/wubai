@@ -1,7 +1,7 @@
 <template>
   <div class="home g-flex g-fd-c g-ai-c">
+    <com-header title="超市" />
     <c-swiper :bannerList="bannerList" :broadcastList="broadcastList"/>
-    <!-- <div class="banner"/> -->
     <div class="g-width g-flex g-jc-sb g-fw-w g-bg-white g-pd-tb-30">
       <div style="height: 38px" class="g-1of2 g-flex g-ai-c g-jc-c">
         <i class="icon-common icon-credit g-m-r-10" />
@@ -22,7 +22,7 @@
       </div>
     </div>
     <router-link to="/login">
-      <button class="g-btn-orange-l g-m-t-40" @click="handleApply">申请贷款</button>
+      <button class="g-btn-orange-l g-m-t-40">申请贷款</button>
     </router-link>
     <div class="g-fixed-bottom g-width g-m-tb-10 g-flex g-ai-c g-jc-c g-fs-14">
       <i class="icon-common icon-safe g-m-r-10"/>
@@ -34,10 +34,12 @@
 import { getData } from '@/api/home'
 import Debounce from '@/util/debounce'
 import cSwiper from './components/swiper'
+import comHeader from '@/components/header/header'
 export default {
   name: 'home',
   components: {
-    cSwiper
+    cSwiper,
+    comHeader
   },
   data () {
     return {

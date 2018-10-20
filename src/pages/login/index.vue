@@ -1,5 +1,6 @@
 <template>
   <div class="login g-flex g-fd-c g-ai-c">
+    <com-header title="登录" />
     <div class="logo g-bg-orange">
       <img src="" alt="">
     </div>
@@ -44,9 +45,14 @@
 <script>
 import { getCode, toLoginIn } from '@/api/login'
 import Debounce from '@/util/debounce'
+import comHeader from '@/components/header/header'
+
 let t = null // 发送验证码的60秒定时器
 export default {
   name: 'login',
+  components: {
+    comHeader
+  },
   data () {
     return {
       phone: '',
