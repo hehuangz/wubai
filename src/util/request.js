@@ -17,16 +17,14 @@ const service = axios.create({
 // respone拦截器
 service.interceptors.response.use(
   response => {
+    if (response.data && response.data.code === -1) {
+      Vue.$vux.toast.text(response.data.msg)
+    }
     return response
   },
   error => {
-    // console.log('requestError: ', error)
     if (error.response && error.response.status === 500) {
-      if (error.response.data.status === 4023) {
-        utils.tokenInvalid()
-      } else {
-        Vue.$vux.toast.text('网络错误')
-      }
+      Vue.$vux.toast.text('网络错误')
     }
     return Promise.reject(error)
   }

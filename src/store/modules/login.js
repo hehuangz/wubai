@@ -7,7 +7,11 @@ export default {
   state: {
     // 用户id
     uid: 1,
-    token: ''
+    token: '',
+    serverInfo: { // 服务端返回的信息
+      status: 'fail',
+      message: '接口调用失败'
+    }
   },
   mutations: {
     [types.GLOBAL_RES] (state, {code, message, data}) {
