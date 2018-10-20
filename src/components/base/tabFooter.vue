@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     getRoute () {
-      if (this.$route.path === '/') {
+      if (this.$route.path === '/wages') {
         this.tabIndex = 0
       } else if (this.$route.path === '/classify') {
         this.tabIndex = 1
@@ -66,7 +66,7 @@ export default {
         case 0:
           this.preTabIndex = this.tabIndex
           this.$utils.otherButton()
-          this.$router.replace({path: '/', query: {shopId: this.$utils.localData.get('shopId'), shopName: this.$utils.localData.get('shopName')}})
+          this.$router.replace({ path: 'wages' })
           break
         case 1:
           this.preTabIndex = this.tabIndex

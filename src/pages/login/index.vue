@@ -18,18 +18,18 @@
         v-model="captcha"
         :attr="{ maxlength: 6 }"
       >
-        <div
+        <button
           v-if="!isCaptcha"
           class="btn-captcha g-btn g-bg-orange"
           @click="handleCaptcha"
-        >获取验证码</div>
-        <div
+        >获取验证码</button>
+        <button
           v-else
           class="btn-captcha g-btn g-bg-cccccc"
-        >重新获取({{time}})</div>
+        >重新获取({{time}})</button>
       </mt-field>
     </div>
-    <div class="btn-login g-btn-orange-l" @click="handleLogin">登录</div>
+    <button class="btn-login g-btn-orange-l" @click="handleLogin">登录</button>
     <div class="g-fs-14 g-c-999999 g-flex g-ai-c">
       <input
         type="checkbox"

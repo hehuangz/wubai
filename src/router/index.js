@@ -47,6 +47,10 @@ export default new Router({
   base: '/',
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
@@ -55,6 +59,11 @@ export default new Router({
       path: '/offline',
       name: 'offline',
       component: offline
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: home
     },
     {
       /* Tabbar页面 */
