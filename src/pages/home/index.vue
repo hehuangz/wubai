@@ -1,11 +1,7 @@
 <template>
   <div class="home g-flex g-fd-c g-ai-c">
-    <c-swiper />
+    <c-swiper :bannerList="bannerList" :broadcastList="broadcastList"/>
     <!-- <div class="banner"/> -->
-    <div class="g-width g-m-tb-10 g-pd-lr-20 g-bs-bb g-flex g-ai-c">
-      <i class="icon-common icon-notice g-m-r-10"/>
-      <span class="g-c-666666">fhgvjbkjk</span>
-    </div>
     <div class="g-width g-flex g-jc-sb g-fw-w g-bg-white g-pd-tb-30">
       <div style="height: 38px" class="g-1of2 g-flex g-ai-c g-jc-c">
         <i class="icon-common icon-credit g-m-r-10" />
@@ -25,7 +21,9 @@
         <span class="g-c-666666 g-fs-16">在线客服</span>
       </div>
     </div>
-    <button class="g-btn-orange-l g-m-t-40" @click="handleApply">申请贷款</button>
+    <router-link to="/login">
+      <button class="g-btn-orange-l g-m-t-40" @click="handleApply">申请贷款</button>
+    </router-link>
     <div class="g-fixed-bottom g-width g-m-tb-10 g-flex g-ai-c g-jc-c g-fs-14">
       <i class="icon-common icon-safe g-m-r-10"/>
       <span class="g-c-666666">银行级数据加密保护</span>
@@ -43,15 +41,36 @@ export default {
   },
   data () {
     return {
+      bannerList: [
+        {
+          "id": 62,
+          "subTitle": "fref",
+          "titleDesc": "ree",
+          "pointUrl": "#",
+          "picUrl": "http://pcxmz350k.bkt.clouddn.com/banner/1534844710572.png",
+          "created": "2018-08-21 17:45:12",
+          "updated": "2018-09-23 20:13:53",
+          "bannerType": 1
+        }
+      ],
+      broadcastList: [
+        {
+          "id": 57,
+          "bizType": "1",
+          "content": "153****9732 成功借款1800",
+          "bizStatus": 0,
+          "createdAt": "2018-07-09 21:01:23",
+          "createdBy": "sys",
+          "updatedAt": "2018-09-06 09:40:06",
+          "updatedBy": "administrator"
+        }
+      ]
     }
   },
-  beforeMount () {
+  mounted () {
     this._onData()
   },
   methods: {
-    handleApply () {
-
-    },
     async _onData () {
       let params = {}
       getData(params).then(({ data: { code, data, message } }) => {
@@ -70,14 +89,6 @@ export default {
 </script>
 <style lang="less">
   .home {
-    .banner {
-      width: 100%;
-      height: 200px;
-      box-sizing: border-box;
-      overflow: hidden;
-      background: url(../../assets/images/home_banner.png) no-repeat center;
-      background-size: cover;
-    }
     .icon-common {
       display: block;
       width: 22px;

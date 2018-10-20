@@ -7,6 +7,7 @@ import home from './modules/home'
 import upload from './modules/upload'
 import user from './modules/user' // 用户模块
 import cart from './modules/cart' // 购物车模块
+import wages from './modules/wages'
 Vue.use(Vuex)
 
 // 判断是不是生产环境 production ===> 生产环境
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     home,
     upload,
     user,
-    cart
+    cart,
+    wages
   }
 })

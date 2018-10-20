@@ -76,15 +76,12 @@ export default {
         phone: this.phone,
         smsType: '8805'
       }
-      getCode(params).then(({ data: { code, data, message } }) => {
-        console.log(code, data, message)
-        // if (code === 1) {
-        //   console.log(111, 'code1')
-        // } else {
-        //   console.log(222, '!code1')
-        // }
-      }).catch(() => {
-        console.log(333, 'catch')
+      getCode(params).then(({ data: { code, data, msg } }) => {
+        if (code === 1) {
+          this.$vux.toast.text('验证码发送成功')
+        }
+      }).catch((error) => {
+        console.log('error', error)
       })
     },
     handleLogin () {
@@ -113,6 +110,9 @@ export default {
       }
       toLoginIn(params).then(({ data: { code, data, msg } }) => {
         console.log(code, data, msg)
+        // if (code === 1) {
+        this.$router.push('/certification')
+        // }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
       })

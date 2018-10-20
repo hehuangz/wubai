@@ -1,5 +1,6 @@
 import * as types from './../mutation_types'
-import { getData } from '@/api/home'
+import { getData } from '@/api/wages'
+const CODE = 1
 export default {
   state: {
     // 用户id
@@ -26,12 +27,15 @@ export default {
         status: 'success',
         data
       }
+    },
+    [types.USER_LOGIN] (state, user) {
+      state.uid = user.uid
+      state.token = user.token
     }
   },
   actions: {
     async getData ({commit, state}, params) {
       const { data } = await getData(params)
-      console.log('data', data)
       commit('GLOBAL_RES', data)
       return state.serverInfo
     }

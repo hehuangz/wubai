@@ -42,6 +42,11 @@ const tabbar = (resolve) => {
     resolve(module)
   })
 }
+const certification = (resolve) => {
+  import('@/pages/certification/index').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -71,7 +76,7 @@ export default new Router({
       component: tabbar,
       children: [
         {
-          /* 首页 */
+          /* 发工资 */
           path: '/wages',
           name: 'wages',
           component: wages,
@@ -95,6 +100,11 @@ export default new Router({
           component: user
         }
       ]
+    },
+    {
+      path: '/certification',
+      name: 'certification',
+      component: certification
     }
   ]
 })
