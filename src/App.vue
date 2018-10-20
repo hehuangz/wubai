@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { Button } from 'mint-ui'
 import offline from './pages/offline/index'
 export default {
   name: 'app',
@@ -45,8 +44,7 @@ export default {
 @import "~vux/src/styles/reset.less";
 
 body {
-  background-color: #fcfcfc;
-  // background-color: #fbf9fe;
+  background-color: #f4f4f4;
 }
 .vux-popup-dialog {
   overflow-y: auto;

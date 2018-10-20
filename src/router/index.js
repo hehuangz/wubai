@@ -7,6 +7,11 @@ const home = (resolve) => {
     resolve(module)
   })
 }
+const wages = (resolve) => {
+  import('@/pages/wages/index').then((module) => {
+    resolve(module)
+  })
+}
 const classify = (resolve) => {
   import('@/pages/classify/index').then((module) => {
     resolve(module)
@@ -58,9 +63,9 @@ export default new Router({
       children: [
         {
           /* 首页 */
-          path: '/',
-          name: 'home',
-          component: home,
+          path: '/wages',
+          name: 'wages',
+          component: wages,
           meta: { keepAlive: true }
         },
         {

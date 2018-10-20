@@ -113,19 +113,17 @@ export default {
   .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon,
   .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i,
   .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
-    color: #FF4B2E;
+    color: #666666;
+  }
+  .weui-tabbar {
+    background: #fff;
+  }
+  .weui-tabbar__icon {
+    width: 20px;
+    height: 20px;
   }
   .weui-tabbar__icon > sup {
     top: -2px;
-  }
-  .badge{
-    color:red;
-    position: absolute;
-    top:0;
-    left:0;
-  }
-  .vux-badge{
-    margin-top:5px;
   }
 }
 </style>
