@@ -1,6 +1,7 @@
 <template>
   <div class="home g-flex g-fd-c g-ai-c">
-    <div class="banner"/>
+    <c-swiper />
+    <!-- <div class="banner"/> -->
     <div class="g-width g-m-tb-10 g-pd-lr-20 g-bs-bb g-flex g-ai-c">
       <i class="icon-common icon-notice g-m-r-10"/>
       <span class="g-c-666666">fhgvjbkjk</span>
@@ -32,18 +33,37 @@
   </div>
 </template>
 <script>
+import { getData } from '@/api/home'
 import Debounce from '@/util/debounce'
+import cSwiper from './components/swiper'
 export default {
   name: 'home',
-  props: {
+  components: {
+    cSwiper
   },
   data () {
     return {
     }
   },
+  beforeMount () {
+    this._onData()
+  },
   methods: {
     handleApply () {
 
+    },
+    async _onData () {
+      let params = {}
+      getData(params).then(({ data: { code, data, message } }) => {
+        console.log(code, data, message)
+        // if (code === 1) {
+        //   console.log(111, 'code1')
+        // } else {
+        //   console.log(222, '!code1')
+        // }
+      }).catch(() => {
+        // console.log(333, 'catch')
+      })
     }
   }
 }

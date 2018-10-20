@@ -31,10 +31,6 @@ export default {
         data,
         message
       }
-    },
-    [types.SET_CART_NUMBER] (state, number) {
-      // console.log('module', number)
-      state.cartNumber = number.toString()
     }
   },
   actions: {
