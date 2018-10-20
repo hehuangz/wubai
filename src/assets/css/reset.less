@@ -39,13 +39,13 @@
    /*默认字体设置：*/
    font-family: PingFangSC-Regular;
  }
- 
+
  /* HTML5 display-role reset for older browsers */
  article, aside, details, figcaption, figure,
  footer, header, menu, nav, section {
    display: block;
  }
- 
+
  body {
    line-height: 1.6;
    font-size:12px;
@@ -57,21 +57,21 @@
    width: 7.5rem;
    overflow-x: hidden;
  }
- 
+
  blockquote, q {
    quotes: none;
  }
- 
+
  blockquote:before, blockquote:after,
  q:before, q:after {
    content: none;
  }
- 
+
  table {
    border-collapse: collapse;
    border-spacing: 0;
  }
- 
+
  /* custom */
  a {
    text-decoration: none;
@@ -79,7 +79,7 @@
    color:inherit;
    display: inline-block;
  }
- 
+
  li {
    list-style: none;
  }
@@ -90,24 +90,24 @@
    width: 5px;
    height: 5px;
  }
- 
+
  ::-webkit-scrollbar-track-piece {
    background-color: rgba(0, 0, 0, 0.2);
    -webkit-border-radius: 6px;
  }
- 
+
  ::-webkit-scrollbar-thumb:vertical {
    height: 5px;
    background-color: rgba(125, 125, 125, 0.7);
    -webkit-border-radius: 6px;
  }
- 
+
  ::-webkit-scrollbar-thumb:horizontal {
    width: 5px;
    background-color: rgba(125, 125, 125, 0.7);
    -webkit-border-radius: 6px;
  }
- 
+
  html {
    width: 100%;
  }
@@ -115,7 +115,7 @@
    min-height: 100%;
    position: relative;
  }
- 
+
  input, textarea, button{
    outline: none;
  }
@@ -149,91 +149,7 @@ button:active:after {
   transition: 0s;
 }
 
-.bg_cover {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-// 单行文本 省略号
-.space_ellipsis {
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-}
-
-// 多行文本 省略号
-.space_line {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-// 界面颜色
-.c_7AB199 {
-  color: #7AB199;
-}
-.b_7AB199{
-  background-color: #7AB199;
-}
-.c_C69746 {
-  color: #C69746;
-}
-.b_C69746 {
-  background-color: #C69746;
-}
-.c_BB4430 {
-  color: #BB4430;
-}
-.b_BB4430{
-  background-color: #BB4430;
-}
-.c_7EBDC2 {
-  color: #7EBDC2;
-}
-.b_7EBDC2 {
-  background-color: #7EBDC2;
-}
-.c_FF4B2D {
-  color: #ff4b2d;
-}
-
-
-// 背景颜色
-.bC_FFF{
-  background-color: #fff;
-}
-.bC_F9F9F9 {
-  background-color: #F9F9F9;
-}
-.bC_FF4B2D {
-  background-color: #ff4b2d;
-}
-
-// 线条颜色
-.border_color_F2F2F2 {
-  border-color: #F2F2F2;
-}
-.block46 {
-  height: 46px;
-  width: 100%;
-}
-// 头部样式
-.vux-header {
-  position: fixed!important;
-  top:0!important;
-  width:100%!important;
-  max-width: 7.5rem!important;
-  z-index:1000!important;
-}
-.v-transfer-dom .vux-popup-dialog {
-  overflow-y: auto;
-  &.vux-popup-bottom {
-    background-color: #FFF;
-  }
-}
-
-div.van-pull-refresh {
-  overflow: unset;
+// mint表单据左边的距离
+.mint-cell-wrapper {
+  padding-left: 15px!important;
 }

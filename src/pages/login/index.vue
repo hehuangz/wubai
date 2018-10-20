@@ -1,5 +1,45 @@
 <template>
-  <div class="p-login g-bg-f9f9f9">
+  <div class="login g-flex g-fd-c g-ai-c">
+    <div class="logo g-bg-orange">
+      <img src="" alt="">
+    </div>
+    <div class="g-c-666666 g-fs-16 g-m-b-15">伍佰账单</div>
+    <div class="g-width g-bs-bb">
+      <mt-field
+        label="手机号"
+        placeholder="请输入您的手机号"
+        type="number"
+        v-model="phone"
+        :attr="{ maxlength: 11 }"
+      ></mt-field>
+      <mt-field
+        label="验证码"
+        placeholder="请输入您的验证码"
+        v-model="captcha"
+        :attr="{ maxlength: 6 }"
+      >
+        <div
+          v-if="!isCaptcha"
+          class="btn-captcha g-btn g-bg-orange"
+          @click="handleCaptcha"
+        >获取验证码</div>
+        <div
+          v-else
+          class="btn-captcha g-btn g-bg-cccccc"
+        >重新获取{{time}}</div>
+      </mt-field>
+    </div>
+    <div class="btn-login g-btn-orange-l" @click="handleLogin">登录</div>
+    <div class="g-fs-14 g-c-999999 g-flex g-ai-c">
+      <input
+        type="checkbox"
+        v-model="isAllow"
+        @click="handleCheck"
+        style="width: 16px;height: 16px"
+      />
+      登录并同意《用户协议》</div>
+  </div>
+  <!-- <div class="p-login g-bg-f9f9f9">
     <img class="_avatar g-flex g-jc-c" :src="IMG_OSS_LOGO"/>
     <main class="center g-width g-flex g-jc-c g-fw-w">
       <div class="_item g-bg-white g-flex g-jc-fs g-ai-c">
@@ -29,190 +69,130 @@
         <span class="g-c-orange" @click="handleToAgreement">《吾同用户协议》</span>
       </div>
     </main>
-  </div>
+  </div> -->
 </template>
 
 <script>
-import { IMG_OSS_LOGO, IMG_OSS_PHONE, IMG_OSS_LOCK } from '@/constants/constants.js'
 import { getCode, toLoginIn } from '@/api/login'
 import Debounce from '@/util/debounce'
+import { Toast } from 'mint-ui'
 let t = null // 发送验证码的60秒定时器
 export default {
   name: 'login',
   data () {
     return {
-      IMG_OSS_LOGO,
-      IMG_OSS_PHONE,
-      IMG_OSS_LOCK,
-      isInAppType: false,
-      isGetCode: true,
+      phone: '',
+      captcha: '',
+      isCaptcha: false, // 是否发送验证码
       time: 59,
-      tel: '',
-      code: ''
+      isAllow: true
     }
   },
   created () {
   },
   mounted () {
-    window.onBack = this.onBack
   },
   methods: {
-    onBack () {
-      this.$router.go(-1)
-    },
-    closeTip () {
-      this.isInAppType = true
-    },
-    handleCode () {
+    handleCaptcha () {
       const rules = {
         tel: {
           name: "手机号",
           type: "validMobile",
-          value: this.tel,
+          value: this.phone,
           required: !0
         }
       }
       if (!this._onCheck(rules)) return
-      Debounce(() => this._onCode(), 1000)
+      this.isCaptcha = true
+      this._onTime() // 重新获取倒计时开始
+      Debounce(() => this._onCaptcha(), 1000)
     },
-    async _onCode () {
-      this.isGetCode = false
+    _onCaptcha () {
       let params = {
-        tel: this.tel
+        phone: this.phone,
+        smsType: '8805'
       }
-      getCode(params).then(({ data: { code, data, message } }) => {
-        if (code === 200) {
-          this._onTime()
-          this.isGetCode = false
-          this.$vux.toast.text('验证码发送成功')
-        } else {
-          this.isGetCode = true
-          this.$vux.toast.text(message)
-        }
-      }).catch(() => {
-        this.isGetCode = true
-        this.$vux.toast.text('网络出错,请稍后重试')
-      })
+      // getCode(params).then(({ data: { code, data, message } }) => {
+      //   if (code === 1) {
+      //     console.log(111,'code1')
+      //   } else {
+      //     console.log(222,'!code1')
+      //   }
+      // }).catch(() => {
+      //   console.log(333, 'catch')
+      // })
     },
     handleLogin () {
       const rules = {
         tel: {
           name: "手机号",
           type: "validMobile",
-          value: this.tel,
+          value: this.phone,
           required: !0
         },
         code: {
           name: "验证码",
           type: "validPostalCode",
-          value: this.code,
+          value: this.captcha,
           required: !0
         }
       }
       if (!this._onCheck(rules)) return
-      this._onLogin()
+      Debounce(() => this._onLogin(), 1000)
+    },
+    _onLogin () {
+
     },
     _onTime () {
-      t = setInterval(() => {
+      let t = setInterval(() => {
         this.time--
         if (this.time <= 0) {
           clearInterval(t)
-          this.isGetCode = true
+          this.isCaptcha = false
           this.time = 59
         }
       }, 1000)
     },
-    async _onLogin () {
-      let sid = this.$utils.localData.get('shopId')
-      let localShareInfo = this.$utils.localData.get("shareInfo")
-      let shareInfo = {}
-      if (localShareInfo && localShareInfo !== 'undefined') {
-        shareInfo = JSON.parse(localShareInfo) || {}
-      }
-      let params = {
-        tel: this.tel,
-        verifycode: this.code,
-        foruid: shareInfo.uid || 0, // 分享者id
-        gid: shareInfo.adviserId || null, // 顾问id，同分享者
-        sid: sid && sid !== 'undefined' ? sid : null
-      }
-      toLoginIn(params).then(({ data: { code, data, message } }) => {
-        if (code === 200) {
-          this.$utils.localData.set("uid", data.uid)
-          this.$utils.localData.set("tel", data.tel)
-          this.$utils.localData.set("token", data.token)
-          this.$utils.localData.set("userType", data.userType)
-          this.$vux.toast.text('成功登录')
-          this.$router.go(-1)
-        } else {
-          this.$vux.toast.text(message)
-        }
-      }).catch(() => {
-        this.$vux.toast.text('网络出错，请稍后重试')
-      })
-    },
-    handleToAgreement () {
-      this.$router.push({ name: 'useragreement' })
-    },
     _onCheck (rules) {
       const resultValidity = this.$utils.dataValidity(rules)
       if (!resultValidity.status) {
-        this.$vux.toast.text(resultValidity.error)
+        Toast({
+          message: resultValidity.error,
+          position: 'top'
+        })
         return false
       }
       return true
+    },
+    handleCheck () {
+      console.log(11, this.isAllow)
     }
   }
 }
 </script>
 
 <style lang="less">
-.p-login {
-  header {
-    padding-bottom: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    .back {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      border-radius: 16px;
-      background-color: black;
-      text-align: center;
-      opacity: 0.3;
-      position: fixed;
-      z-index: 10;
-      left: 0.16rem;
-      top: 1rem;
-      i.iconfont {
-        color: white;
-        font-size: 18/50rem;
+  .login {
+    .logo {
+      width: 86px;
+      height: 86px;
+      border-radius: 2px;
+      margin-top: 46px;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
     }
-  }
-  ._avatar {
-    width: 100px;
-    height: 68px;
-    overflow: hidden;
-    margin: 20% auto 20px;
-  }
-  .center {
-    height: 200px;
-    padding: 30px 0;
-    ._item {
-      width: 295px;
-      height: 48px;
-      border-radius: 100px;
-    }
-    ._img {
-      width: 48px;
-      height: 48px;
-    }
-    .__input {
+    .btn-captcha {
+      width: 86px;
       height: 30px;
+      border-radius: 4px;
+      line-height: 32px;
+    }
+    .btn-login {
+      margin: 40px auto 10px;
     }
   }
-}
 </style>

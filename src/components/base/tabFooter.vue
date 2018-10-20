@@ -27,11 +27,10 @@ export default {
       tabIndex: 2, // v-model
       preTabIndex: 2,
       tabList: [
-        { name: '主页', imageNo: require('@/assets/images/home.png'), imageOn: require('@/assets/images/homeClick.png') },
-        { name: '分类', imageNo: require('@/assets/images/classify.png'), imageOn: require('@/assets/images/classifyClick.png') },
-        { name: '购物车', imageNo: require('@/assets/images/wutong_shopping cart_monocolour@2x.png'), imageOn: require('@/assets/images/wutong_shopping cart_colour@2x.png') },
-        { name: '消息', imageNo: require('@/assets/images/message.png'), imageOn: require('@/assets/images/messageClick.png') },
-        { name: '我的', imageNo: require('@/assets/images/my.png'), imageOn: require('@/assets/images/myClick.png') }
+        { name: '发工资', imageNo: require('@/assets/images/tab_money.png'), imageOn: require('@/assets/images/tab_money_checked.png') },
+        { name: '聚宝盆', imageNo: require('@/assets/images/tab_love.png'), imageOn: require('@/assets/images/tab_love_checked.png') },
+        { name: '咨询', imageNo: require('@/assets/images/tab_tool.png'), imageOn: require('@/assets/images/tab_tool_checked.png') },
+        { name: '我的', imageNo: require('@/assets/images/tab_my.png'), imageOn: require('@/assets/images/tab_my_checked.png') }
       ],
       uid: null,
       token: null,

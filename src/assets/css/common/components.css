@@ -1,78 +1,59 @@
-.g-bt-orange-s {
-	min-width: 102px;
-	height: 32px;
-	background: #ff4b2d;
-	color: #fff;
-	font-size: 12px;
-	line-height: 32px;
+[class*="g-btn"] {
 	text-align: center;
-	border-radius: 100px;
-	font-weight: 200;
+	transition: all 0.2s;
 }
-.g-bt-orange-s:active{
+[class*="g-btn"]:active {
 	opacity: 0.75;
 }
-.g-bt-orange-l {
-	width: 295px;
+/* 宽高自定义的按钮 */
+.g-btn {
+	font-size: 14px;
+	color: #fff;
+}
+/* 大按钮 */
+.g-btn-orange-l {
+	width: 90vw;
 	height: 48px;
-	background: #ff4b2d;
+	background: #ffaa22;
 	color: #fff;
 	font-size: 16px;
 	line-height: 48px;
 	text-align: center;
-	border-radius: 100px;
-	font-weight: 200;
+	border-radius: 2px;
+	font-weight: bold;
 }
-.g-bt-orange-l:active{
-	opacity: 0.75;
+/* cell上边线 */
+.g-line-gray {
+	width: 100%;
+	height: 0.5px;
+	background: #f5f5f5;
+	margin: 0 auto;
 }
-.g-bt-gray-s {
-	min-width: 102px;
-	height: 32px;
-	background: #d8d8d8;
-	color: #fff;
-	font-size: 12px;
-	line-height: 32px;
-	text-align: center;
-	border-radius: 100px;
-	font-weight: 200;
+/* 单行文本 省略号 */
+.space_ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
-.g-bt-gray-s:active{
-	opacity: 0.75;
+
+/* 多行文本 省略号 */
+.space_line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
-/* 顾问列表的文字按钮 */
-.g-bt-text-gray {
-	width: 50vw;
-	height: 46px;
-	font-size: 14px;
-	color: #4a4a4a;
-	font-weight: 200;
-	text-align: center;
-	line-height: 46px;
+/* 改变checkbox样式 */
+input[type="checkbox"] {
+  -webkit-appearance: none;  /*清除复选框默认样式*/
+  background: url(../../images/checkbox.png) no-repeat; /*复选框的背景图*/
+  vertical-align: middle;
+  background-size: cover;
+  outline: none;
+  margin: 0px;
+  margin-right: 5px;
 }
-.g-bt-text-gray:active {
-	/* opacity: 0.6; */
-	background: #f8f8f8;
-}
-/* 整宽的红色按钮 */
-.g-bt-square-pink {
-	width: 100vw;
-	height: 46px;
-	background: #ffa596;
-	font-size: 16px;
-	color: #fff;
-	font-weight: 200;
-	text-align: center;
-	line-height: 46px;
-}
-/* app旧的方形按钮 */
-.g-square-btn-orange {
-	height: 28px;
-  width: 77px;
-  line-height: 28px;
-  text-align: center;
-  background: #FF4B2E;
-  border: 1px solid #FF4B2E;
-  color:white;
-  font-size: 12px;
+input[type="checkbox"]:checked {
+  background: url(../../images/checkbox_checked.png) no-repeat;
+  background-size: cover;
 }
