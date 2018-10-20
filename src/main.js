@@ -10,7 +10,6 @@ import store from './store'
 import App from './App'
 import networkListening from './util/networkListening'
 import './assets/css/reset.less'
-import './assets/icon/iconfont.css'
 import './assets/css/common.less'
 /* eslint-disable no-unused-vars */
 // import VConsole from 'vconsole' // 移动端测试环境

@@ -2,5 +2,5 @@
 module.exports = {
   NODE_ENV: '"production"',
   ENV_CONFIG: '"sit"',
-  BASE_API: '"http://api.t.wutonglife.com/life"'
+  BASE_API: '"http://dkcs.zhongic.com"'
 }
