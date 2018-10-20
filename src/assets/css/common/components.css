@@ -1,0 +1,78 @@
+.g-bt-orange-s {
+	min-width: 102px;
+	height: 32px;
+	background: #ff4b2d;
+	color: #fff;
+	font-size: 12px;
+	line-height: 32px;
+	text-align: center;
+	border-radius: 100px;
+	font-weight: 200;
+}
+.g-bt-orange-s:active{
+	opacity: 0.75;
+}
+.g-bt-orange-l {
+	width: 295px;
+	height: 48px;
+	background: #ff4b2d;
+	color: #fff;
+	font-size: 16px;
+	line-height: 48px;
+	text-align: center;
+	border-radius: 100px;
+	font-weight: 200;
+}
+.g-bt-orange-l:active{
+	opacity: 0.75;
+}
+.g-bt-gray-s {
+	min-width: 102px;
+	height: 32px;
+	background: #d8d8d8;
+	color: #fff;
+	font-size: 12px;
+	line-height: 32px;
+	text-align: center;
+	border-radius: 100px;
+	font-weight: 200;
+}
+.g-bt-gray-s:active{
+	opacity: 0.75;
+}
+/* 顾问列表的文字按钮 */
+.g-bt-text-gray {
+	width: 50vw;
+	height: 46px;
+	font-size: 14px;
+	color: #4a4a4a;
+	font-weight: 200;
+	text-align: center;
+	line-height: 46px;
+}
+.g-bt-text-gray:active {
+	/* opacity: 0.6; */
+	background: #f8f8f8;
+}
+/* 整宽的红色按钮 */
+.g-bt-square-pink {
+	width: 100vw;
+	height: 46px;
+	background: #ffa596;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 200;
+	text-align: center;
+	line-height: 46px;
+}
+/* app旧的方形按钮 */
+.g-square-btn-orange {
+	height: 28px;
+  width: 77px;
+  line-height: 28px;
+  text-align: center;
+  background: #FF4B2E;
+  border: 1px solid #FF4B2E;
+  color:white;
+  font-size: 12px;
+}

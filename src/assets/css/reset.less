@@ -1,0 +1,239 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed,
+ figure, figcaption, footer, header,
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video, input {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font-weight: normal;
+   vertical-align: baseline;
+   /*清楚点击阴影：*/
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   -webkit-tap-highlight-color: transparent;
+   /*清楚按钮圆角：*/
+   -webkit-appearance:none;
+   border-radius:0;
+   /*选中文字设置：*/
+   -webkit-user-select:auto;
+   -moz-user-select: auto;
+   -ms-user-select: auto;
+   user-select: auto;
+   /*禁止文字缩放：*/
+   -webkit-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+   /*默认字体设置：*/
+   font-family: PingFangSC-Regular;
+ }
+ 
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure,
+ footer, header, menu, nav, section {
+   display: block;
+ }
+ 
+ body {
+   line-height: 1.6;
+   font-size:12px;
+   max-width:640px;
+   margin:0 auto;
+   color:#424242;
+   -webkit-text-size-adjust: none;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   width: 7.5rem;
+   overflow-x: hidden;
+ }
+ 
+ blockquote, q {
+   quotes: none;
+ }
+ 
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+   content: none;
+ }
+ 
+ table {
+   border-collapse: collapse;
+   border-spacing: 0;
+ }
+ 
+ /* custom */
+ a {
+   text-decoration: none;
+   -webkit-backface-visibility: hidden;
+   color:inherit;
+   display: inline-block;
+ }
+ 
+ li {
+   list-style: none;
+ }
+ div,img,a{
+   border:none;
+ }
+ ::-webkit-scrollbar {
+   width: 5px;
+   height: 5px;
+ }
+ 
+ ::-webkit-scrollbar-track-piece {
+   background-color: rgba(0, 0, 0, 0.2);
+   -webkit-border-radius: 6px;
+ }
+ 
+ ::-webkit-scrollbar-thumb:vertical {
+   height: 5px;
+   background-color: rgba(125, 125, 125, 0.7);
+   -webkit-border-radius: 6px;
+ }
+ 
+ ::-webkit-scrollbar-thumb:horizontal {
+   width: 5px;
+   background-color: rgba(125, 125, 125, 0.7);
+   -webkit-border-radius: 6px;
+ }
+ 
+ html {
+   width: 100%;
+ }
+ html,body{
+   min-height: 100%;
+   position: relative;
+ }
+ 
+ input, textarea, button{
+   outline: none;
+ }
+
+ /* 水波纹 */
+button {
+  position: relative;
+  overflow: hidden;
+  border:none
+}
+button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .3s, opacity .5s;
+}
+
+button:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+}
+
+.bg_cover {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+// 单行文本 省略号
+.space_ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本 省略号
+.space_line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+// 界面颜色
+.c_7AB199 {
+  color: #7AB199;
+}
+.b_7AB199{
+  background-color: #7AB199;
+}
+.c_C69746 {
+  color: #C69746;
+}
+.b_C69746 {
+  background-color: #C69746;
+}
+.c_BB4430 {
+  color: #BB4430;
+}
+.b_BB4430{
+  background-color: #BB4430;
+}
+.c_7EBDC2 {
+  color: #7EBDC2;
+}
+.b_7EBDC2 {
+  background-color: #7EBDC2;
+}
+.c_FF4B2D {
+  color: #ff4b2d;
+}
+
+
+// 背景颜色
+.bC_FFF{
+  background-color: #fff;
+}
+.bC_F9F9F9 {
+  background-color: #F9F9F9;
+}
+.bC_FF4B2D {
+  background-color: #ff4b2d;
+}
+
+// 线条颜色
+.border_color_F2F2F2 {
+  border-color: #F2F2F2;
+}
+.block46 {
+  height: 46px;
+  width: 100%;
+}
+// 头部样式
+.vux-header {
+  position: fixed!important;
+  top:0!important;
+  width:100%!important;
+  max-width: 7.5rem!important;
+  z-index:1000!important;
+}
+.v-transfer-dom .vux-popup-dialog {
+  overflow-y: auto;
+  &.vux-popup-bottom {
+    background-color: #FFF;
+  }
+}
+
+div.van-pull-refresh {
+  overflow: unset;
+}
