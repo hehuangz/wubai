@@ -76,7 +76,7 @@ export default {
         case 2:
           this.tabIndex = this.preTabIndex
           this.$utils.otherButton()
-          if (!this.$utils.getUidAndToken()) {
+          if (this.$utils.getUidAndToken()) {
             this.$utils.tokenInvalid()
             return false
           } else {
