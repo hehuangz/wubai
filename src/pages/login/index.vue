@@ -117,7 +117,6 @@ export default {
         source: '3'
       }
       toLoginIn(params).then(({ data: { code, data, msg } }) => {
-        console.log(code, data, msg)
         if (code === 1) {
           this.$vux.toast.text('登录成功')
           this.$router.push('/certification')

@@ -504,6 +504,19 @@ const dataValidity = (rules) => {
   }
   return state
 }
+/**
+ * 校验正则规则是否符合规范
+ * @param {Object} rules 规则
+ * @return {Boolean} true校验成功，false校验失败，toast信息
+ */
+const dataValidityCheck = (rules) => {
+  const resultValidity = dataValidity(rules)
+  if (!resultValidity.status) {
+    vue.$vux.toast.text && vue.$vux.toast.text(resultValidity.error)
+    return false
+  }
+  return true
+}
 // --over--
 /**
  * 处理字符串中携带的参数
@@ -556,5 +569,6 @@ export default {
   uploadAvator,
   contactBuyer,
   dataValidity,
+  dataValidityCheck,
   getQuery
 }

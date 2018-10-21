@@ -1,5 +1,5 @@
 import * as types from './../mutation_types'
-import { getAll, getContact, getBank } from '@/api/certification'
+import { getAll, getContact, getBank, getIdCard } from '@/api/certification'
 const CODE = 1
 export default {
   state: {
@@ -38,6 +38,11 @@ export default {
     },
     async getBank ({commit, state}, params) {
       const { data } = await getBank(params)
+      commit('GLOBAL_RES', data)
+      return state.serverInfo
+    },
+    async etIdCard ({commit, state}, params) {
+      const { data } = await etIdCard(params)
       commit('GLOBAL_RES', data)
       return state.serverInfo
     }

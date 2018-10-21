@@ -17,3 +17,9 @@ export const getBank = data => Axios({
   method: 'post',
   params: data
 })
+// 保存身份证信息
+export const getIdCard = data => Axios({
+  url: '/api/tuserPersonInfo/authIdCard',
+  method: 'post',
+  params: data
+})
