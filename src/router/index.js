@@ -17,8 +17,8 @@ const classify = (resolve) => {
     resolve(module)
   })
 }
-const cart = (resolve) => {
-  import('@/pages/cart/index').then((module) => {
+const consult = (resolve) => {
+  import('@/pages/consult/consult').then((module) => {
     resolve(module)
   })
 }
@@ -105,9 +105,9 @@ export default new Router({
           meta: { keepAlive: true }
         },
         {
-          path: 'cart',
-          name: 'cart',
-          component: cart
+          path: 'consult',
+          name: 'consult',
+          component: consult
         },
         {
           path: 'user',
