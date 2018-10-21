@@ -20,6 +20,10 @@
 .g-height-36 {
   height: 36px;
 }
+.g-height-48 {
+  height: 48px;
+  line-height: 48px;
+}
 /* margin */
 .g-m-t-0half {
   margin-top: -50%;
@@ -310,6 +314,9 @@
 .g-br-oval {
   border: 1px solid #e6e6e6;
   border-radius: 100px;
+}
+.g-border-t-f0f0f0 {
+  border-top: 1px solid #f0f0f0;
 }
 
 /* box */

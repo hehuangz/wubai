@@ -1,5 +1,5 @@
 import * as types from './../mutation_types'
-import { getAll } from '@/api/login'
+import { getAll, getContact, getBank, getIdCard } from '@/api/certification'
 const CODE = 1
 export default {
   state: {
@@ -28,6 +28,21 @@ export default {
   actions: {
     async getAll ({commit, state}, params) {
       const { data } = await getAll(params)
+      commit('GLOBAL_RES', data)
+      return state.serverInfo
+    },
+    async getContact ({commit, state}, params) {
+      const { data } = await getContact(params)
+      commit('GLOBAL_RES', data)
+      return state.serverInfo
+    },
+    async getBank ({commit, state}, params) {
+      const { data } = await getBank(params)
+      commit('GLOBAL_RES', data)
+      return state.serverInfo
+    },
+    async etIdCard ({commit, state}, params) {
+      const { data } = await etIdCard(params)
       commit('GLOBAL_RES', data)
       return state.serverInfo
     }

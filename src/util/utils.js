@@ -434,7 +434,7 @@ const obj = {
     error: "身份证号格式不正确"
   },
   validPrice: {
-    regex: /^([1-9][\d]{0,10}|0)([.]?[\d]{1,2})?$/,
+    regex: /^([1-9][\d]{0,10}|0)([.]?[\d]{1,10})?$/,
     error: "请输入正确金额"
   },
   validMobile: { // 手机号不做太严格的验证，主要后端
@@ -460,6 +460,10 @@ const obj = {
   validName: {
     regex: /^[A-Za-z0-9\u4e00-\u9fa5_-]{1,}$/,
     error: "请不要输入特殊字符"
+  },
+  validBackNumber: {
+    regex: /^([1-9]{1})(\d{10,18})$/,
+    error: "请输入正确的银行卡号"
   }
 }
 
@@ -499,6 +503,19 @@ const dataValidity = (rules) => {
     }
   }
   return state
+}
+/**
+ * 校验正则规则是否符合规范
+ * @param {Object} rules 规则
+ * @return {Boolean} true校验成功，false校验失败，toast信息
+ */
+const dataValidityCheck = (rules) => {
+  const resultValidity = dataValidity(rules)
+  if (!resultValidity.status) {
+    vue.$vux.toast.text && vue.$vux.toast.text(resultValidity.error)
+    return false
+  }
+  return true
 }
 // --over--
 /**
@@ -552,5 +569,6 @@ export default {
   uploadAvator,
   contactBuyer,
   dataValidity,
+  dataValidityCheck,
   getQuery
 }

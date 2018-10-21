@@ -10,24 +10,26 @@
       label="真实姓名"
       placeholder="请输入您的真实姓名"
       type="text"
-      v-model="realName"
+      v-model="userReal"
       :attr="{ maxlength: 11 }"
     ></mt-field>
     <mt-field
       label="身份证号"
       placeholder="请输入您的身份证号"
       type="text"
-      v-model="idNumber"
+      v-model="idCard"
       :attr="{ maxlength: 18 }"
     ></mt-field>
     <div class="g-flex g-jc-c g-m-t-40 g-m-b-40">
-      <button class="g-btn-orange-l">下一步</button>
+      <button class="g-btn-orange-l" @click="handleSave">保存</button>
     </div>
   </div>
 </template>
 
 <script>
 import comHeader from '@/components/header/header'
+import { getIdCard } from '@/api/certification'
+import Debounce from '@/util/debounce'
 export default {
   name: 'certificationIdCard',
   components: {
@@ -36,12 +38,49 @@ export default {
   props: {},
   data () {
     return {
-      realName: '',
-      idNumber: ''
+      userReal: '',
+      idCard: '',
+      faceImg: '',
+      idCardImg: '',
+      idCardBackImg: ''
     }
   },
   methods: {
-
+    handleSave () {
+      const rules = {
+        userReal: {
+          name: "真实姓名",
+          type: "validName",
+          value: this.userReal,
+          required: !0
+        },
+        idCard: {
+          name: "身份证号",
+          type: "validId",
+          value: this.idCard,
+          required: !0
+        }
+      }
+      if (!this.$utils.dataValidityCheck(rules)) return
+      Debounce(() => this._onSave(), 1000)
+    },
+    async _onSave () {
+      let params = {
+        userReal: this.userReal,
+        idCard: this.idCard,
+        faceImg: this.faceImg,
+        idCardImg: this.idCardImg,
+        idCardBackImg: this.idCardBackImg
+      }
+      getIdCard(params).then(({ data: { code, data, msg } }) => {
+        if (code === 1) {
+          this.$vux.toast.text('保存成功')
+          this.$router.replace('/certification')
+        }
+      }).catch(() => {
+        this.$vux.toast.text('网络出错，请稍后重试')
+      })
+    }
   }
 }
 </script>

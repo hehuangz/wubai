@@ -73,6 +73,11 @@ const certificationBank = (resolve) => {
     resolve(module)
   })
 }
+const certificationContact = (resolve) => {
+  import('@/pages/certification/contact').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -141,6 +146,11 @@ export default new Router({
       path: '/certification/bank',
       name: 'certificationBank',
       component: certificationBank
+    },
+    {
+      path: '/certification/contact',
+      name: 'certificationContact',
+      component: certificationContact
     },
     {
       path: '/user/myPost',
