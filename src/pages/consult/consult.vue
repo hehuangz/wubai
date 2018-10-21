@@ -1,7 +1,7 @@
 <template>
   <div class="consult">
     <com-header title="每日帖子" />
-    <v-swiper :bannerList="bannerList" />
+    <v-swiper :bannerList="bannerList" :broadcastList="broadcastList" />
     <ul class="card-ul">
       <li class="card-li g-bs" v-for="item in cards" :key="item.name">
         <div class="card">
@@ -55,10 +55,10 @@
       this._onData()
     },
     methods: {
-      async _onConsultData() {
+      async _onConsultData () {
         let param = {limit: this.posts.limit, page: this.posts.page}
         getConsultData(param).then(({data: {code, data, msg}}) => {
-          const {list= []} = data
+          const {list = []} = data
           if (code === 1) {
             this.posts.list = list
           }
