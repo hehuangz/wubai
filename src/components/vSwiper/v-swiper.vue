@@ -29,11 +29,15 @@
     props: {
       bannerList: {
         type: Array,
-        default: []
+        default () {
+          return []
+        }
       },
       broadcastList: {
         type: Array,
-        default: []
+        default () {
+          return []
+        }
       }
     }
   }

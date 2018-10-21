@@ -14,12 +14,13 @@
       </li>
     </ul>
     <ul class="loan-list-ul">
-      <li class="loan-list-li g-bs" v-for="item in posts.list">
+      <li class="loan-list-li g-bs" v-for="item in posts.list" :key="item.id">
         <div class="left-text">
           <div class="title space_ellipsis">{{item.title}}</div>
           <div class="content">{{item.content}}</div>
         </div>
         <div class="right-img">
+          <div></div>
           <img class="img" v-lazy="item.image" alt="">
         </div>
       </li>
@@ -27,6 +28,7 @@
   </div>
 </template>
 <script>
+  import {getBannerData, getConsultData} from '@/api/posts'
   import comHeader from '@/components/header/header'
   import vSwiper from '@/components/vSwiper/v-swiper'
 
@@ -35,123 +37,46 @@
     components: {comHeader, vSwiper},
     data () {
       return {
-        bannerList: [
-          {
-            "id": 60,
-            "subTitle": "获得授",
-            "titleDesc": "撒大苏打",
-            "pointUrl": "http://gateway.51buding.cn/Api-App/page/generalize?source",
-            "picUrl": "http://pcxmz350k.bkt.clouddn.com/banner/1534738122808.png",
-            "created": "2018-08-20 12:08:44",
-            "updated": "2018-09-23 20:14:04",
-            "bannerType": 3
-          }
-        ],
-        broadcastList: [
-          {
-            "id": 59,
-            "bizType": "2",
-            "content": "183****9632 成功借款1200",
-            "bizStatus": 0,
-            "createdAt": "2018-07-09 21:02:00",
-            "createdBy": "sys",
-            "updatedAt": "2018-09-24 19:20:55",
-            "updatedBy": "123456"
-          }
-        ],
+        bannerList: [],
+        broadcastList: [],
         cards: [
           {icon: require('@/assets/images/icon-expert.png'), name: '快速贷款', info: '额度高，速度快'},
           {icon: require('@/assets/images/icon-loan.png'), name: '理财专家', info: '月入过万不是梦'}
         ],
         posts: {
-          pageNum: 1,
-          pageSize: 10,
-          total: 2,
-          pages: 1,
-          list: [
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题我是标题我是标题我是标题我是标题我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            },
-            {
-              "id": 2,
-              "userId": 8,
-              "userName": "18357250336",
-              "title": "我是标题",
-              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
-              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
-              "createTime": "2018-09-24 21:53:20",
-              "orderIndex": 0,
-              "state": 1
-            }
-          ],
-          isFirstPage: true,
-          isLastPage: true,
-          hasPreviousPage: false,
-          hasNextPage: false
+          limit: 10,
+          page: 1,
+          list: []
         }
+      }
+    },
+    mounted () {
+      this._onConsultData()
+      this._onData()
+    },
+    methods: {
+      async _onConsultData () {
+        let param = {limit: this.posts.limit, page: this.posts.page}
+        getConsultData(param).then(({data: {code, data, msg}}) => {
+          const {list = []} = data
+          if (code === 1) {
+            this.posts.list = list
+          }
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+      async _onData () {
+        let params = {}
+        getBannerData(params).then(({data: {code, data, msg}}) => {
+          const {bannerList = [], broadcastList = []} = data
+          if (code === 1) {
+            this.bannerList = bannerList
+            this.broadcastList = broadcastList
+          }
+        }).catch((error) => {
+          console.log(error)
+        })
       }
     }
   }
