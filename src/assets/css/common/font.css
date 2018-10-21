@@ -105,5 +105,8 @@
 .g-fs-30 {
 	font-size: 30px!important;
 }
+.g-bs {
+  box-shadow: 0 2px 10px rgba(110, 110, 82, 0.1);;
+}
 
 

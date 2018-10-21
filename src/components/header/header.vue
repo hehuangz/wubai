@@ -4,6 +4,9 @@
       <div slot="left" @click="onBack" v-if="isBack">
         <mt-button icon="back"></mt-button>
       </div>
+      <div slot="right">
+        <slot/>
+      </div>
     </mt-header>
     <div class="place"></div>
   </div>

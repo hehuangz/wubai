@@ -3,9 +3,9 @@
     <com-header title="每日帖子" />
     <v-swiper :bannerList="bannerList" :broadcastList="broadcastList" />
     <ul class="card-ul">
-      <li class="card-li" v-for="item in cards" :key="item.name">
+      <li class="card-li g-bs" v-for="item in cards" :key="item.name">
         <div class="card">
-          <img class="left-icon" width="24" height="24" :src="item.icon" />
+          <img class="left-icon" :src="item.icon" />
           <div class="right-desc">
             <div class="name">{{item.name}}</div>
             <div class="info">{{item.info}}</div>
@@ -14,13 +14,13 @@
       </li>
     </ul>
     <ul class="loan-list-ul">
-      <li class="loan-list-li" v-for="item in posts.list">
+      <li class="loan-list-li g-bs" v-for="item in posts.list">
         <div class="left-text">
-          <div class="title">{{item.title}}</div>
+          <div class="title space_ellipsis">{{item.title}}</div>
           <div class="content">{{item.content}}</div>
         </div>
         <div class="right-img">
-          <img width="128" height="84" :src="item.image" alt="">
+          <img class="img" v-lazy="item.image" alt="">
         </div>
       </li>
     </ul>
@@ -69,6 +69,28 @@
           total: 2,
           pages: 1,
           list: [
+            {
+              "id": 2,
+              "userId": 8,
+              "userName": "18357250336",
+              "title": "我是标题我是标题我是标题我是标题我是标题我是标题",
+              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
+              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
+              "createTime": "2018-09-24 21:53:20",
+              "orderIndex": 0,
+              "state": 1
+            },
+            {
+              "id": 2,
+              "userId": 8,
+              "userName": "18357250336",
+              "title": "我是标题",
+              "content": "我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文",
+              "image": "http://pcxmz350k.bkt.clouddn.com/user/post/1537797200116.png",
+              "createTime": "2018-09-24 21:53:20",
+              "orderIndex": 0,
+              "state": 1
+            },
             {
               "id": 2,
               "userId": 8,
@@ -142,22 +164,23 @@
     .card-ul {
       display: flex;
       justify-content: space-between;
-      padding: 0 30px;
+      padding: 0 30/50rem;
       .card-li {
         display: flex;
         align-items: center;
-        width: 150px;
-        height: 90px;
+        width: 150/50rem;
+        height: 90/50rem;
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: 0 0 4px rgba(0, 0, 0, .1);
         .card {
           display: flex;
           align-items: center;
           width: 100%;
-          height: 46px;
+          height: 46/50rem;
           .left-icon {
-            margin: 0 7px 0 15px;
+            width: 24/50rem;
+            height: 24/50rem;
+            margin: 0 7/50rem 0 15/50rem;
           }
           .right-desc {
             display: flex;
@@ -166,7 +189,7 @@
             height: 100%;
             .name {
               flex: 0 0 100%;
-              font-size: 15px;
+              font-size: 15/50rem;
               font-weight: 600;
               color: #666;
             }
@@ -184,23 +207,24 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 110px;
-        padding: 10px 22px;
-        margin: 10px 0;
+        height: 110/50rem;
+        padding: 10/50rem 22/50rem;
+        margin: 10/50rem 0;
         box-sizing: border-box;
-        box-shadow: 0 2px 10px rgba(110, 110, 82, 0.1);
         overflow: hidden;
         background: #fff;
         .left-text {
-          flex: auto;
-          margin-right: 32px;
+          width: 60%;
+          overflow: hidden;
+          margin-right: 32/50rem;
           .title {
-            font-size: 15px;
+            width: 100%;
+            font-size: 15/50rem;
             color: #666;
             font-weight: bold;
           }
           .content {
-            font-size: 14px;
+            font-size: 14/50rem;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
@@ -208,6 +232,10 @@
           }
         }
         .right-img {
+          .img {
+            width: 128/50rem;
+            height: 84/50rem;
+          }
         }
       }
     }
