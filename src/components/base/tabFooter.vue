@@ -20,7 +20,6 @@
 export default {
   name: 'tabFooter',
   props: {
-
   },
   data () {
     return {
@@ -81,16 +80,17 @@ export default {
             return false
           } else {
             this.tabIndex = 2
-            this.$router.replace({ path: 'cart' })
+            this.$router.replace({ path: 'consult' })
           }
           break
         case 3:
           this.tabIndex = this.preTabIndex
-          if (!this.$utils.getUidAndToken()) {
+          if (this.$utils.getUidAndToken()) {
             this.$utils.tokenInvalid()
             return false
           } else {
             this.tabIndex = 3
+            this.$router.replace({ path: 'user' })
             this.$utils.sendMessage()
           }
           break

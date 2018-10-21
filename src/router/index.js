@@ -1,6 +1,7 @@
 import Vue from 'vue'
 // import utils from './../util/utils'
 import Router from 'vue-router'
+
 Vue.use(Router)
 const home = (resolve) => {
   import('@/pages/home/index').then((module) => {
@@ -29,6 +30,21 @@ const login = (resolve) => {
 }
 const user = (resolve) => {
   import('@/pages/user/index').then((module) => {
+    resolve(module)
+  })
+}
+const myPost = (resolve) => {
+  import('@/pages/user/my-post').then((module) => {
+    resolve(module)
+  })
+}
+const newPost = (resolve) => {
+  import('@/pages/user/new-post').then((module) => {
+    resolve(module)
+  })
+}
+const postRelease = (resolve) => {
+  import('@/pages/user/post-release').then((module) => {
     resolve(module)
   })
 }
@@ -90,22 +106,22 @@ export default new Router({
           path: '/wages',
           name: 'wages',
           component: wages,
-          meta: { keepAlive: true }
+          meta: {keepAlive: true}
         },
         {
           /* 分类 */
           path: '/classify',
           name: 'classify',
           component: classify,
-          meta: { keepAlive: true }
+          meta: {keepAlive: true}
         },
         {
-          path: 'consult',
+          path: '/consult',
           name: 'consult',
           component: consult
         },
         {
-          path: 'user',
+          path: '/user',
           name: 'user',
           component: user
         }
@@ -125,6 +141,21 @@ export default new Router({
       path: '/certification/bank',
       name: 'certificationBank',
       component: certificationBank
+    },
+    {
+      path: '/user/myPost',
+      name: 'my-post',
+      component: myPost
+    },
+    {
+      path: '/user/newPost',
+      name: 'new-post',
+      component: newPost
+    },
+    {
+      path: '/user/postRelease',
+      name: 'post-release',
+      component: postRelease
     }
   ]
 })

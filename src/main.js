@@ -35,7 +35,8 @@ import {
   TabbarItem,
   XTextarea,
   XDialog,
-  Countdown
+  Countdown,
+  Icon
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -58,6 +59,7 @@ Vue.component('tabbar-item', TabbarItem)
 Vue.component('x-textarea', XTextarea)
 Vue.component('confirm', Confirm)
 Vue.component('Countdown', Countdown)
+Vue.component('Icon', Icon)
 // 插件
 Vue.use(ToastPlugin)
 Vue.use(AjaxPlugin)
@@ -86,7 +88,7 @@ Vue.use(VueLazyload, {
   error: require('./assets/images/loading.png'),
   loading: require('./assets/images/loading.png'),
   attempt: 1,
-  listenEvents: [ 'scroll' ]
+  listenEvents: ['scroll']
 })
 
 // 全局过滤器  过滤时间
