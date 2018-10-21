@@ -9,7 +9,7 @@
       :attr="{ maxlength: 11 }"
     ></mt-field>
     <div class="g-line-gray"></div>
-    <div class="g-bg-white g-width g-flex g-pd-15 g-bs-bb">
+    <div class="g-bg-white g-width g-flex g-pd-lr-15 g-bs-bb g-fs-16 g-height-48">
       <div style="width: 105px" class="g-fs-0">选择银行卡</div>
       <select class="select g-width g-block g-fs-16 g-pd-r-10 g-bs-bb">
         <option value="1">18-21</option>
