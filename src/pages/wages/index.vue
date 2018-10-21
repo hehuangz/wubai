@@ -1,23 +1,25 @@
 <template>
   <div class="home">
     <com-header title="发工资" />
-    <div>home</div>
-    <c-adviser />
+    <v-swiper :bannerList="bannerList" :broadcastList="[]"/>
   </div>
 </template>
 <script>
   import cAdviser from './components/adviser'
   import { getData } from '@/api/wages'
   import comHeader from '@/components/header/header'
+  import vSwiper from '@/components/vSwiper/v-swiper'
 
   export default {
     name: 'wages',
     components: {
       cAdviser,
-      comHeader
+      comHeader,
+      vSwiper
     },
     data () {
       return {
+        bannerList: []
       }
     },
     mounted () {
@@ -25,15 +27,12 @@
     },
     methods: {
       async _onData () {
-        getData().then(({ data: { code, data, msg } }) => {
-          console.log(code, data, msg)
-        // if (code === 1) {
-        //   console.log(111, 'code1')
-        // } else {
-        //   console.log(222, '!code1')
-        // }
-        }).catch(() => {
-        // console.log(333, 'catch')
+        getData().then(({ data: { code, data = [], msg } }) => {
+          if (code === 1 && data.bannerList) {
+            this.bannerList = data.bannerList
+          }
+        }).catch((error) => {
+          console.log(error)
         })
       }
     }
