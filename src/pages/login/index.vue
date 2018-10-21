@@ -118,9 +118,10 @@ export default {
       }
       toLoginIn(params).then(({ data: { code, data, msg } }) => {
         console.log(code, data, msg)
-        // if (code === 1) {
-        this.$router.push('/certification')
-        // }
+        if (code === 1) {
+          this.$vux.toast.text('登录成功')
+          this.$router.push('/certification')
+        }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
       })

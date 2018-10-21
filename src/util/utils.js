@@ -434,7 +434,7 @@ const obj = {
     error: "身份证号格式不正确"
   },
   validPrice: {
-    regex: /^([1-9][\d]{0,10}|0)([.]?[\d]{1,2})?$/,
+    regex: /^([1-9][\d]{0,10}|0)([.]?[\d]{1,10})?$/,
     error: "请输入正确金额"
   },
   validMobile: { // 手机号不做太严格的验证，主要后端
@@ -460,6 +460,10 @@ const obj = {
   validName: {
     regex: /^[A-Za-z0-9\u4e00-\u9fa5_-]{1,}$/,
     error: "请不要输入特殊字符"
+  },
+  validBackNumber: {
+    regex: /^([1-9]{1})(\d{10,18})$/,
+    error: "请输入正确的银行卡号"
   }
 }
 

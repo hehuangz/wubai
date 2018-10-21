@@ -1,7 +1,9 @@
 <template>
   <div class="contents">
     <com-header title="资格认证" />
-    <mt-cell title="身份证认证" to="/certification/idCard">
+    <mt-cell
+      title="身份证认证"
+      :to="userAuth.idState === 1 || userAuth.idState === 2?'':'/certification/idCard'">
       <span
         v-if="authState[userAuth.idState]"
         :class="authState[userAuth.idState].class"
@@ -19,7 +21,9 @@
       </span>
       <span v-else class="g-c-orange">未认证</span>
     </mt-cell>
-    <mt-cell title="银行卡认证" to="/certification/bank">
+    <mt-cell
+      title="银行卡认证"
+      :to="userAuth.bankState === 1 || userAuth.bankState === 2?'':'/certification/bank'">
       <span
         v-if="authState[userAuth.bankState]"
         :class="authState[userAuth.bankState].class"
@@ -28,7 +32,9 @@
       </span>
       <span v-else class="g-c-orange">未认证</span>
     </mt-cell>
-    <mt-cell title="紧急联系人认证" to="/certification/contact">
+    <mt-cell
+      title="紧急联系人认证"
+      :to="userAuth.contactsState === 1 || userAuth.contactsState === 2?'':'/certification/contact'">
       <span
         v-if="authState[userAuth.contactsState]"
         :class="authState[userAuth.contactsState].class"
