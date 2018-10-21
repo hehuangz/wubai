@@ -70,6 +70,8 @@ Vue.directive('transfer-dom', TransferDom)
 // utils.localData.set('uid', 52)
 // utils.localData.set('token', 'wtlifeeyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOiI1MiIsInR5cGUiOiJ3dGxpZmVfYXBwIn0.DaEGRNmgWF34cvjKJ84oDhs3Mi1HIVa42BZ58oMeIQgThkkuS0IunqXbCXPlfY9ZKu1lWrSjgn4dcfmDXD6gCQ')
 // utils.localData.set('userType', '2')   // 1顾问  2用户
+
+axios.defaults.withCredentials = true
 Vue.prototype.$http = axios
 Vue.prototype.$utils = utils
 Vue.prototype.$qs = qs

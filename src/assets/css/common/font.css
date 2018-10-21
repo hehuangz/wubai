@@ -1,30 +1,12 @@
 /* color */
 .g-c-orange {
-  color: #ff4b2d!important;
+  color: #ffaa22!important;
 }
 .g-c-white {
   color: #ffffff!important;
 }
-.g-c-e6e6e6 {
-  color: #e6e6e6!important;
-}
 .g-c-blue {
   color: #4a90e2!important;
-}
-.g-c-pink {
-  color: pink!important;
-}
-.g-c-purple {
-  color: #fd527e!important;
-}
-.g-c-yellow {
-  color: #ff972d!important;
-}
-.g-c-929292 {
-  color: #929292!important;
-}
-.g-c-9b9b9b {
-  color: #9b9b9b!important;
 }
 .g-c-green {
   color: green!important;
@@ -32,20 +14,11 @@
 .g-c-wxgreen {
   color: #42ad31!important;
 }
-.g-c-212121 {
-  color: #212121!important;
+.g-c-888888 {
+  color: #888888!important;
 }
-.g-c-3e3e3e {
-  color: #3e3e3e!important;
-}
-.g-c-c4c4c4 {
-  color: #c4c4c4!important;
-}
-.g-c-afafaf {
-  color: #afafaf!important;
-}
-.g-c-4a4a4a {
-	color: #4a4a4a!important;
+.g-c-red {
+  color: #f86351!important;
 }
 /* font */
 .g-tc {
@@ -71,16 +44,16 @@
 
 /* line-height */
 .g-lh-24 {
-	line-height: 24px; 
+	line-height: 24px;
 }
 .g-lh-30 {
-	line-height: 30px; 
+	line-height: 30px;
 }
 .g-lh-36 {
-	line-height: 36px; 
+	line-height: 36px;
 }
 .g-lh-44 {
-	line-height: 44px; 
+	line-height: 44px;
 }
 /* letter-spacing */
 .g-ls-1 {

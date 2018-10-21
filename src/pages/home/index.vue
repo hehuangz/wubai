@@ -43,30 +43,8 @@ export default {
   },
   data () {
     return {
-      bannerList: [
-        {
-          "id": 62,
-          "subTitle": "fref",
-          "titleDesc": "ree",
-          "pointUrl": "#",
-          "picUrl": "http://pcxmz350k.bkt.clouddn.com/banner/1534844710572.png",
-          "created": "2018-08-21 17:45:12",
-          "updated": "2018-09-23 20:13:53",
-          "bannerType": 1
-        }
-      ],
-      broadcastList: [
-        {
-          "id": 57,
-          "bizType": "1",
-          "content": "153****9732 成功借款1800",
-          "bizStatus": 0,
-          "createdAt": "2018-07-09 21:01:23",
-          "createdBy": "sys",
-          "updatedAt": "2018-09-06 09:40:06",
-          "updatedBy": "administrator"
-        }
-      ]
+      bannerList: [],
+      broadcastList: []
     }
   },
   mounted () {
@@ -75,13 +53,14 @@ export default {
   methods: {
     async _onData () {
       let params = {}
-      getData(params).then(({ data: { code, data, message } }) => {
-        console.log(code, data, message)
-        // if (code === 1) {
-        //   console.log(111, 'code1')
-        // } else {
-        //   console.log(222, '!code1')
-        // }
+      getData(params).then(({ data: { code, data, msg } }) => {
+        const {bannerList = [], broadcastList = []} = data
+        if (code === 1) {
+          this.bannerList = bannerList
+          this.broadcastList = broadcastList
+        } else {
+          console.log(222, '!code1')
+        }
       }).catch(() => {
         // console.log(333, 'catch')
       })

@@ -10,28 +10,28 @@
 </template>
 
 <script>
-  export default {
-    name: 'CHeader',
-    props: {
-      title: String
-    },
-    data () {
-      return {
-        isBack: true
-      }
-    },
-    mounted () {
-      console.log(window.history.length)
-      if (Number(window.history.length) <= 0) {
-        this.isBack = false
-      }
-    },
-    methods: {
-      onBack () {
-        this.$router.back(-1)
-      }
+export default {
+  name: 'comHeader',
+  props: {
+    title: String
+  },
+  data () {
+    return {
+      isBack: true
+    }
+  },
+  mounted () {
+    console.log(window.history.length)
+    if (Number(window.history.length) <= 0) {
+      this.isBack = false
+    }
+  },
+  methods: {
+    onBack () {
+      this.$router.back(-1)
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
