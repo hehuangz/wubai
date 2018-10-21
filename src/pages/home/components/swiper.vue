@@ -5,7 +5,6 @@
         class="item"
         v-for="(item) in bannerList"
         :key="item.id"
-        show-dot
         >
         <router-link :to="item.pointUrl"><img :src="item.picUrl" alt=""></router-link>
       </swiper-item>

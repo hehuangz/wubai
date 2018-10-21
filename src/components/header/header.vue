@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'CHeader',
+  name: 'comHeader',
   props: {
     title: String
   },

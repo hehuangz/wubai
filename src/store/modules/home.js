@@ -2,9 +2,6 @@ import * as types from './../mutation_types'
 import { getData } from '@/api/home'
 export default {
   state: {
-    // 用户id
-    uid: 1,
-    token: '',
     serverInfo: { // 服务端返回的信息
       status: 'fail',
       message: '接口调用失败'
@@ -31,7 +28,6 @@ export default {
   actions: {
     async getData ({commit, state}, params) {
       const { data } = await getData(params)
-      console.log('data', data)
       commit('GLOBAL_RES', data)
       return state.serverInfo
     }

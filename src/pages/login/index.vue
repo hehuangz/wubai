@@ -35,10 +35,9 @@
       <input
         type="checkbox"
         v-model="isAllow"
-        @click="handleCheck"
         style="width: 16px;height: 16px"
       />
-      登录并同意《用户协议》</div>
+      我已阅读并同意《用户协议》</div>
   </div>
 </template>
 
@@ -106,6 +105,9 @@ export default {
         }
       }
       if (!this._onCheck(rules)) return
+      if (!this.isAllow) {
+        return this.$vux.toast.text('请先同意用户协议')
+      }
       Debounce(() => this._onLogin(), 1000)
     },
     async _onLogin () {
@@ -140,9 +142,6 @@ export default {
         return false
       }
       return true
-    },
-    handleCheck () {
-      console.log(11, this.isAllow)
     }
   }
 }

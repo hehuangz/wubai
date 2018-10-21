@@ -47,6 +47,16 @@ const certification = (resolve) => {
     resolve(module)
   })
 }
+const certificationIdCard = (resolve) => {
+  import('@/pages/certification/idCard').then((module) => {
+    resolve(module)
+  })
+}
+const certificationBank = (resolve) => {
+  import('@/pages/certification/bank').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -105,6 +115,16 @@ export default new Router({
       path: '/certification',
       name: 'certification',
       component: certification
+    },
+    {
+      path: '/certification/idCard',
+      name: 'certificationIdCard',
+      component: certificationIdCard
+    },
+    {
+      path: '/certification/bank',
+      name: 'certificationBank',
+      component: certificationBank
     }
   ]
 })

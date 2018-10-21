@@ -1,7 +1,5 @@
 import * as types from './../mutation_types'
-import {
-  getCode, toLoginIn
-} from '@/api/login'
+import { getAll } from '@/api/login'
 const CODE = 1
 export default {
   state: {
@@ -12,7 +10,6 @@ export default {
   },
   mutations: {
     [types.GLOBAL_RES] (state, {code, message, data}) {
-      console.log('GLOBAL_RES', code, message, data)
       if (code !== CODE) {
         // vue.$vux.toast.text('网络出错')
         state.serverInfo = {
@@ -29,13 +26,8 @@ export default {
     }
   },
   actions: {
-    async getCode ({commit, state}, params) {
-      const { data } = await getCode(params)
-      commit('GLOBAL_RES', data)
-      return state.serverInfo
-    },
-    async toLoginIn ({commit, state}, params) {
-      const { data } = await toLoginIn(params)
+    async getAll ({commit, state}, params) {
+      const { data } = await getAll(params)
       commit('GLOBAL_RES', data)
       return state.serverInfo
     }
