@@ -71,7 +71,7 @@ export default {
           required: !0
         }
       }
-      if (!this._onCheck(rules)) return
+      if (!this.$utils.dataValidityCheck(rules)) return
       this.isCaptcha = true
       this._onTime() // 重新获取倒计时开始
       Debounce(() => this._onCaptcha(), 1000)
@@ -104,7 +104,7 @@ export default {
           required: !0
         }
       }
-      if (!this._onCheck(rules)) return
+      if (!this.$utils.dataValidityCheck(rules)) return
       if (!this.isAllow) {
         return this.$vux.toast.text('请先同意用户协议')
       }
@@ -134,14 +134,6 @@ export default {
           this.time = 59
         }
       }, 1000)
-    },
-    _onCheck (rules) {
-      const resultValidity = this.$utils.dataValidity(rules)
-      if (!resultValidity.status) {
-        this.$vux.toast.text(resultValidity.error)
-        return false
-      }
-      return true
     }
   }
 }

@@ -121,7 +121,7 @@ export default {
           required: !0
         }
       }
-      if (!this._onCheck(rules)) return
+      if (!this.$utils.dataValidityCheck(rules)) return
       Debounce(() => this._onSave(), 1000)
     },
     async _onSave () {
@@ -141,14 +141,6 @@ export default {
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
       })
-    },
-    _onCheck (rules) {
-      const resultValidity = this.$utils.dataValidity(rules)
-      if (!resultValidity.status) {
-        this.$vux.toast.text(resultValidity.error)
-        return false
-      }
-      return true
     }
   }
 }
