@@ -9,5 +9,5 @@ export const getBannerData = data => Axios({
 export const getConsultData = data => Axios({
   method: 'post',
   url: '/api/tuserPost/selectList',
-  data
+  params: data
 })
