@@ -85,8 +85,8 @@ window.onresize = function () {
 // 懒加载
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: require('./assets/images/loading.png'),
-  loading: require('./assets/images/loading.png'),
+  error: require('./assets/images/loading.gif'),
+  loading: require('./assets/images/loading.gif'),
   attempt: 1,
   listenEvents: ['scroll']
 })

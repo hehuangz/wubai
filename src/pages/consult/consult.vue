@@ -157,9 +157,12 @@
           }
         }
         .right-img {
+          width: 128/50rem;
+          height: 84/50rem;
+          overflow: hidden;
           .img {
-            width: 128/50rem;
-            height: 84/50rem;
+            width: 100%;
+            height: auto;
           }
         }
       }

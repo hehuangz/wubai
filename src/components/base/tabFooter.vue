@@ -60,7 +60,6 @@ export default {
       this.preTabIndex = this.tabIndex
     },
     tabClick (index) {
-      this.$store.commit('SET_MORE_MENU', false)
       switch (index) {
         case 0:
           this.preTabIndex = this.tabIndex

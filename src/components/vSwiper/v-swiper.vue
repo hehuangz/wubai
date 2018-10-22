@@ -2,9 +2,7 @@
   <div class="c-swiper">
     <swiper auto loop :aspect-ratio="350/800" :show-dots="false">
       <swiper-item class="item" v-for="(item) in bannerList" :key="item.id">
-        <router-link :to="item.pointUrl">
-          <img :src="item.picUrl" alt="">
-        </router-link>
+        <img :src="item.picUrl" alt="" @click="handleJump(item.pointUrl)">
       </swiper-item>
     </swiper>
     <swiper
@@ -38,6 +36,11 @@
         default () {
           return []
         }
+      }
+    },
+    methods: {
+      handleJump (url) {
+        window.location.href = url
       }
     }
   }
