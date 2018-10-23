@@ -23,3 +23,21 @@ export const getIdCard = data => Axios({
   method: 'post',
   params: data
 })
+// 保存芝麻分信息
+export const getSesame = data => Axios({
+  url: '/api/tuserPersonInfo/update',
+  method: 'post',
+  params: data
+})
+// 保存微信账号信息
+export const getWeChatAccount = data => Axios({
+  url: '/api/tuserPersonInfo/update',
+  method: 'post',
+  params: data
+})
+// 保存淘宝账号信息
+export const getTbAccount = data => Axios({
+  url: '/api/tuserPersonInfo/update',
+  method: 'post',
+  params: data
+})
