@@ -30,13 +30,13 @@ import {
   Group,
   Confirm,
   CellBox,
-  XButton,
   Tabbar,
   TabbarItem,
   XTextarea,
   XDialog,
   Countdown,
-  Icon
+  XTable,
+  Divider
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -51,15 +51,15 @@ Vue.component('swiper-item', SwiperItem)
 Vue.component('tab', Tab)
 Vue.component('tab-item', TabItem)
 Vue.component('x-dialog', XDialog)
+Vue.component('x-table', XTable)
 Vue.component('group', Group)
-Vue.component('x-button', XButton)
 Vue.component('cell-box', CellBox)
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
 Vue.component('x-textarea', XTextarea)
 Vue.component('confirm', Confirm)
 Vue.component('Countdown', Countdown)
-Vue.component('Icon', Icon)
+Vue.component('divider', Divider)
 // 插件
 Vue.use(ToastPlugin)
 Vue.use(AjaxPlugin)

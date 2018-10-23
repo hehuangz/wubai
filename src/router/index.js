@@ -83,6 +83,11 @@ const certificationCert = (resolve) => {
     resolve(module)
   })
 }
+const wagesDetail = (resolve) => {
+  import('@/pages/wages/detail').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -175,6 +180,11 @@ export default new Router({
       path: '/user/postRelease',
       name: 'post-release',
       component: postRelease
+    },
+    {
+      path: '/wages/detail',
+      name: 'wagesDetail',
+      component: wagesDetail
     }
   ]
 })

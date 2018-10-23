@@ -22,8 +22,20 @@
 	border-radius: 2px;
 	font-weight: normal;
 }
+/* 中按钮 */
+.g-btn-orange-m {
+  width: 35vw;
+	height: 44px;
+	background: #ffaa22;
+	color: #fff;
+	font-size: 16px;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 2px;
+	font-weight: normal;
+}
 /* 小按钮 */
-.g-btn-origin-s {
+.g-btn-orange-s {
   width: 86px;
 	height: 30px;
 	background: #ffaa22;

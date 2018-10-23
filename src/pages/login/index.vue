@@ -36,8 +36,8 @@
         type="checkbox"
         v-model="isAllow"
         style="width: 16px;height: 16px"
-      />
-      我已阅读并同意《用户协议》</div>
+      />我已阅读并同意《用户协议》
+    </div>
   </div>
 </template>
 
