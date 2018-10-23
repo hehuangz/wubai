@@ -7,8 +7,8 @@
       </div>
       <div class="info tips">发布帖子成功</div>
       <div class="info option-btn g-bs-bb">
-        <button class="g-btn-gray-l">再来一篇</button>
-        <button class="g-btn-orange-l">快速贷款</button>
+        <button class="g-btn-gray-m">再来一篇</button>
+        <button class="g-btn-orange-m">快速贷款</button>
       </div>
     </div>
   </div>

@@ -8,7 +8,9 @@
         <p v-if="type === 'fail'" class="g-width g-m-t-5">哎哟，申请失败～</p>
         <p v-if="type === 'wait'" class="g-width g-m-t-5">请安心等待申请结果</p>
       </div>
-      <button class="g-btn-orange-m g-m-t-40">返回首页</button>
+      <router-link to="/wages" replace class="g-m-t-40">
+        <button class="g-btn-orange-m">返回首页</button>
+      </router-link>
     </div>
   </div>
 </template>
