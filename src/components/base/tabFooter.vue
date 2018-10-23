@@ -2,12 +2,7 @@
   <div class="tabFooter">
     <tabbar v-model="tabIndex">
       <div style="flex: 1;" v-for="(tabItem, index) in tabList" :key="index">
-        <tabbar-item  @on-item-click="tabClick" v-if="index === 3 || index=== 2">
-          <img slot="icon" :src="tabItem.imageNo">
-          <img slot="icon-active" :src="tabItem.imageOn">
-          <span slot="label">{{tabItem.name}}</span>
-        </tabbar-item>
-        <tabbar-item  @on-item-click="tabClick" v-else>
+        <tabbar-item  @on-item-click="tabClick">
           <img slot="icon" :src="tabItem.imageNo">
           <img slot="icon-active" :src="tabItem.imageOn">
           <span slot="label">{{tabItem.name}}</span>
@@ -52,10 +47,10 @@ export default {
         this.tabIndex = 0
       } else if (this.$route.path === '/classify') {
         this.tabIndex = 1
-      } else if (this.$route.path === '/cart') {
+      } else if (this.$route.path === '/consult') {
         this.tabIndex = 2
       } else if (this.$route.path === '/user') {
-        this.tabIndex = 4
+        this.tabIndex = 3
       }
       this.preTabIndex = this.tabIndex
     },
@@ -63,39 +58,18 @@ export default {
       switch (index) {
         case 0:
           this.preTabIndex = this.tabIndex
-          this.$utils.otherButton()
           this.$router.replace({ path: 'wages' })
           break
         case 1:
           this.preTabIndex = this.tabIndex
-          this.$utils.otherButton()
           this.$router.replace({ path: 'classify' })
           break
         case 2:
-          this.tabIndex = this.preTabIndex
-          this.$utils.otherButton()
-          if (this.$utils.getUidAndToken()) {
-            this.$utils.tokenInvalid()
-            return false
-          } else {
-            this.tabIndex = 2
-            this.$router.replace({ path: 'consult' })
-          }
+          this.preTabIndex = this.tabIndex
+          this.$router.replace({ path: 'consult' })
           break
         case 3:
-          this.tabIndex = this.preTabIndex
-          if (this.$utils.getUidAndToken()) {
-            this.$utils.tokenInvalid()
-            return false
-          } else {
-            this.tabIndex = 3
-            this.$router.replace({ path: 'user' })
-            this.$utils.sendMessage()
-          }
-          break
-        case 4:
           this.preTabIndex = this.tabIndex
-          this.$utils.otherButton()
           this.$router.replace({ path: 'user' })
           break
       }

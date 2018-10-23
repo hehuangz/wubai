@@ -119,7 +119,6 @@ export default new Router({
           meta: {keepAlive: true}
         },
         {
-          /* 分类 */
           path: '/classify',
           name: 'classify',
           component: classify,
