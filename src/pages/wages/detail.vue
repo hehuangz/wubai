@@ -82,7 +82,7 @@
         }
         getSureCredit(params).then(({ data: { code, data = {}, msg } }) => {
           if (code === 1) {
-            this.$router.replace('/result')
+            this.$router.push('/result?type=success')
           }
         }).catch((error) => {
           console.log(error)

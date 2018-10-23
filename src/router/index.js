@@ -88,6 +88,11 @@ const wagesDetail = (resolve) => {
     resolve(module)
   })
 }
+const result = (resolve) => {
+  import('@/pages/result/index').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -185,6 +190,11 @@ export default new Router({
       path: '/wages/detail',
       name: 'wagesDetail',
       component: wagesDetail
+    },
+    {
+      path: '/result',
+      name: 'result',
+      component: result
     }
   ]
 })
