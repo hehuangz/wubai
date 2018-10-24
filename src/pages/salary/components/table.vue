@@ -9,10 +9,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="g-c-a0a0a0">
-          <td>借款范围</td>
-          <td>借款期限</td>
-          <td>日利息</td>
+        <tr class="g-c-a0a0a0 g-fs-16" v-for="item in list" :key="item.id">
+          <td class="g-c-orange">{{item.amount}}</td>
+          <td>{{item.createTime}}</td>
+          <td class="g-c-666666">{{state[item.state]}}</td>
         </tr>
       </tbody>
     </x-table>
@@ -21,9 +21,15 @@
 <script>
 export default {
   name: 'cTable',
-  props: [],
+  props: ['list'],
   data () {
     return {
+      state: {
+        '0': '提现申请中',
+        '1': '提现中',
+        '2': '提现成功',
+        '3': '提现失败'
+      }
     }
   },
   methods: {

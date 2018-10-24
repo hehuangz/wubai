@@ -2,7 +2,7 @@
   <div class="salary g-bg-white">
     <com-header title="我的工资"/>
     <c-top :topData="topData"/>
-    <group v-if="bankList && bankList.length">
+    <!-- <group v-if="bankList && bankList.length">
       <cell
         v-for="item in bankList"
         :key="item.id"
@@ -11,11 +11,20 @@
         is-link
         link="/notice/list"
       />
+    </group> -->
+    <group title="收款账户">
+      <radio
+        v-model="currentAccount"
+        :selected-label-style="{color: '#ffaa22'}"
+        :options="account"
+        @on-change="change"
+      ></radio>
     </group>
-    <div class="g-flex g-jc-c g-m-tb-20">
+
+    <div class="g-flex g-jc-c g-pd-tb-20">
       <button class="g-btn-orange-l" @click="handleBtn">申请发放工资</button>
     </div>
-    <c-table :list="list"/>
+    <c-table v-if="list && list.length" :list="list"/>
   </div>
 </template>
 <script>
@@ -36,7 +45,9 @@ export default {
       bankList: [],
       list: [],
       limit: 10,
-      page: 1
+      page: 1,
+      account: [],
+      currentAccount: '002'
     }
   },
   beforeMount () {
@@ -49,11 +60,19 @@ export default {
         if (code === 1 && data) {
           this.topData = data
           if (data.bankList && data.bankList.length > 0) {
-            this.bankList = data.bankList
-            this.bankList.forEach(item => {
-              item.cardNo = this.$utils.formatStr(item.cardNo)
+            this.account = []
+            data.bankList.forEach((item, index) => {
+              if (index === 0) {
+                this.currentAccount = item.id
+              }
+              let val = this.$utils.formatStr(item.cardNo)
+              let obj = {key: item.id, value: `${item.bankName}${val}`}
+              this.account.push(obj)
             })
-            console.log(this.bankList)
+            // this.bankList = data.bankList
+            // this.bankList.forEach(item => {
+            //   item.cardNo = this.$utils.formatStr(item.cardNo)
+            // })
           }
         }
       }).catch((error) => {
@@ -74,13 +93,19 @@ export default {
       })
     },
     async handleBtn () {
-      getSureSarary().then(({ data: { code, data, msg } }) => {
-        if (code === 1 && data) {
-
+      let params = {
+        cardId: this.currentAccount
+      }
+      getSureSarary(params).then(({ data: { code, data, msg } }) => {
+        if (code === 1) {
+          // 申请发放工资
         }
       }).catch((error) => {
         console.log(error)
       })
+    },
+    change (value, label) {
+      this.currentAccount = value
     }
   }
 }

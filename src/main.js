@@ -41,7 +41,8 @@ import {
   Cell,
   Grid,
   GridItem,
-  Card
+  Card,
+  Radio
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -70,6 +71,7 @@ Vue.component('cell', Cell)
 Vue.component('grid', Grid)
 Vue.component('grid-item', GridItem)
 Vue.component('card', Card)
+Vue.component('radio', Radio)
 // 插件
 Vue.use(ToastPlugin)
 Vue.use(AjaxPlugin)
