@@ -40,7 +40,8 @@ import {
   Countup,
   Cell,
   Grid,
-  GridItem
+  GridItem,
+  Card
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -68,6 +69,7 @@ Vue.component('countup', Countup)
 Vue.component('cell', Cell)
 Vue.component('grid', Grid)
 Vue.component('grid-item', GridItem)
+Vue.component('card', Card)
 // 插件
 Vue.use(ToastPlugin)
 Vue.use(AjaxPlugin)

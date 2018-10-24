@@ -1,7 +1,7 @@
 <template>
   <div class="user">
     <com-header title="我的" >
-      <router-link to="/home"><i class="icon-notice"/></router-link>
+      <router-link to="/notice"><i class="icon-notice"/></router-link>
     </com-header>
     <c-top
       :userPerson="data.userPerson"

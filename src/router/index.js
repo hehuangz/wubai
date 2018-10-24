@@ -98,6 +98,22 @@ const bowlDetail = (resolve) => {
     resolve(module)
   })
 }
+const notice = (resolve) => {
+  import('@/pages/notice/index').then((module) => {
+    resolve(module)
+  })
+}
+const noticeList = (resolve) => {
+  import('@/pages/notice/list').then((module) => {
+    resolve(module)
+  })
+}
+const noticeDetail = (resolve) => {
+  import('@/pages/notice/detail').then((module) => {
+    resolve(module)
+  })
+}
+
 export default new Router({
   mode: 'history',
   base: '/',
@@ -205,6 +221,21 @@ export default new Router({
       path: '/bowl/detail',
       name: 'bowlDetail',
       component: bowlDetail
+    },
+    {
+      path: '/notice',
+      name: 'notice',
+      component: notice
+    },
+    {
+      path: '/notice/list',
+      name: 'noticeList',
+      component: noticeList
+    },
+    {
+      path: '/notice/detail',
+      name: 'noticeDetail',
+      component: noticeDetail
     }
   ]
 })
