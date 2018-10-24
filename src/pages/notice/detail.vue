@@ -1,8 +1,8 @@
 <template>
-  <div class="noticeList">
-    <com-header :title="type==='system'?'系统消息':'活动消息'" />
-    <div class="g-flex g-ai-c g-jc-c g-fw-w g-m-t-40">
-    </div>
+  <div class="noticeDetail g-pd-15 g-bs-bb g-bg-white">
+    <com-header title="消息详情" />
+    <p class="g-fs-16 g-c-orange g-m-b-5">{{detail.title}}</p>
+    <p class="show g-fs-14 g-a0a0a0">{{detail.content}}</p>
   </div>
 </template>
 
@@ -10,35 +10,30 @@
 // 传入query.type == system/active
 import Debounce from '@/util/debounce'
 import comHeader from '@/components/header/header'
-import { getMessageList } from '@/api/user'
+import { getMessageDetail } from '@/api/user'
 export default {
-  name: 'noticeList',
+  name: 'noticeDetail',
   components: {
     comHeader
   },
   data () {
     return {
-      type: 'system',
-      list: [],
-      limit: 20,
-      page: 1,
-      pages: 1
+      id: null,
+      detail: {}
     }
   },
   beforeMount () {
-    this.type = this.$route.query.type || 'system'
+    this.id = this.$route.query.id || 1
     this._onData()
   },
   methods: {
     async _onData () {
       let params = {
-        limit: this.limit,
-        page: this.page,
-        type: this.type === 'system' ? 1 : 2 // 类型 1：系统；2：活动
+        id: this.id
       }
-      getMessageList(params).then(({ data: { code, data = {}, msg } }) => {
-        if (code === 1) {
-          this.list = data.list
+      getMessageDetail(params).then(({ data: { code, data = {}, msg } }) => {
+        if (code === 1 && data && data.id) {
+          this.detail = data
         }
       }).catch((error) => {
         console.log(error)
@@ -49,8 +44,10 @@ export default {
 </script>
 
 <style lang="less">
-.noticeList {
-
+.noticeDetail {
+  .show {
+    white-space: pre-wrap;
+  }
 }
 
 </style>
