@@ -16,7 +16,13 @@
 <script>
 export default {
   name: 'cCard',
-  props: ['id', 'appName', 'appIconUrl', 'shortDesc', 'subTitle']
+  props: [
+    'id',
+    'appName',
+    'appIconUrl',
+    'shortDesc',
+    'subTitle'
+  ]
 }
 </script>
 

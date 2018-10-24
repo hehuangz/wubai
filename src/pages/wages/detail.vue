@@ -15,7 +15,7 @@
       :creditMinTerm="detail.creditMinTerm"
       :creditMaxTerm="detail.creditMaxTerm"
       :dayInterest="detail.dayInterest"
-      :applyCondition="detail.titemAttach && detail.titemAttach.applyCondition && detail.titemAttach.applyCondition.split(' ')"
+      :applyCondition="detail.titemAttach && detail.titemAttach.applyCondition"
       :requestMaterial="detail.titemAttach && detail.titemAttach.requestMaterial"
       :platformDesc="detail.titemAttach && detail.titemAttach.platformDesc"
     />

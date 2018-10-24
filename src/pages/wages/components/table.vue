@@ -45,21 +45,15 @@
     ></mt-field>
     <mt-cell title="申请条件"></mt-cell>
     <div class="g-pd-lr-15 g-c-666666 g-fs-16">
-      <div class="g-border-t-gray g-pd-tb-10">
-        <p v-for="item in applyCondition" :key="item">{{item}}</p>
-      </div>
+      <div class="show g-border-t-gray g-pd-tb-10">{{applyCondition}}</div>
     </div>
     <mt-cell title="所需材料"></mt-cell>
     <div class="g-pd-lr-15 g-c-666666 g-fs-16">
-      <div class="g-border-t-gray g-pd-tb-10">
-        <p>{{requestMaterial}}</p>
-      </div>
+      <div class="show g-border-t-gray g-pd-tb-10">{{requestMaterial}}</div>
     </div>
     <mt-cell title="产品说明"></mt-cell>
     <div class="g-pd-lr-15 g-c-666666 g-fs-16">
-      <div class="g-border-t-gray g-pd-tb-10">
-        <p>{{platformDesc}}</p>
-      </div>
+      <div class="show g-border-t-gray g-pd-tb-10">{{platformDesc}}</div>
     </div>
     <div class="g-pd-tb-10 g-m-t-10 g-width g-bg-white g-flex g-jc-c g-fw-w">
       <button
@@ -181,6 +175,9 @@ export default {
   }
   /deep/ .mint-cell-title {
     color: #a0a0a0;
+  }
+  .show {
+    white-space: pre-wrap;
   }
 }
 </style>

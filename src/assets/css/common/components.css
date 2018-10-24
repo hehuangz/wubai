@@ -129,3 +129,18 @@ input[type="checkbox"]:checked {
   line-height: 48px;
   text-align: center;
 }
+
+/* 带数字的小圆点 */
+.g-circle {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 100%;
+  background: #ffaa22;
+  display: inline-block;
+  font-style: normal;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}

@@ -45,7 +45,7 @@ export default {
     getRoute () {
       if (this.$route.path === '/wages') {
         this.tabIndex = 0
-      } else if (this.$route.path === '/classify') {
+      } else if (this.$route.path === '/bowl') {
         this.tabIndex = 1
       } else if (this.$route.path === '/consult') {
         this.tabIndex = 2
@@ -62,7 +62,7 @@ export default {
           break
         case 1:
           this.preTabIndex = this.tabIndex
-          this.$router.replace({ path: 'classify' })
+          this.$router.replace({ path: 'bowl' })
           break
         case 2:
           this.preTabIndex = this.tabIndex

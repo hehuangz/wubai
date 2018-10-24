@@ -14,6 +14,15 @@
 .g-height {
   height: 100vh;
 }
+.g-height-10 {
+  height: 10px;
+}
+.g-height-15 {
+  height: 15px;
+}
+.g-height-20 {
+  height: 20px;
+}
 .g-height-30 {
   height: 30px;
 }
@@ -27,6 +36,10 @@
 /* margin */
 .g-m-t-0half {
   margin-top: -50%;
+}
+/* -5 */
+.g-m-t-05 {
+  margin-top: -5px;
 }
 /* 0 */
 .g-m-0 {
@@ -309,8 +322,6 @@
   padding-right: 40px;
 }
 
-
-
 /* border-radius */
 .g-br-100 {
   border-radius: 100px;
@@ -388,4 +399,7 @@
 .g-overflow-h {
   overflow: hidden
 }
-
+/* shadow */
+.g-shadow-b {
+  box-shadow: 0px 1px 2px rgba(66, 66, 66, 0.1);
+}

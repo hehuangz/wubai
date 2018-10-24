@@ -36,7 +36,9 @@ import {
   XDialog,
   Countdown,
   XTable,
-  Divider
+  Divider,
+  Countup,
+  Cell
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -60,6 +62,8 @@ Vue.component('x-textarea', XTextarea)
 Vue.component('confirm', Confirm)
 Vue.component('Countdown', Countdown)
 Vue.component('divider', Divider)
+Vue.component('countup', Countup)
+Vue.component('cell', Cell)
 // 插件
 Vue.use(ToastPlugin)
 Vue.use(AjaxPlugin)

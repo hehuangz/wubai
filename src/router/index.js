@@ -13,8 +13,8 @@ const wages = (resolve) => {
     resolve(module)
   })
 }
-const classify = (resolve) => {
-  import('@/pages/classify/index').then((module) => {
+const bowl = (resolve) => {
+  import('@/pages/bowl/index').then((module) => {
     resolve(module)
   })
 }
@@ -93,6 +93,11 @@ const result = (resolve) => {
     resolve(module)
   })
 }
+const bowlDetail = (resolve) => {
+  import('@/pages/bowl/detail').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   mode: 'history',
   base: '/',
@@ -129,9 +134,9 @@ export default new Router({
           meta: {keepAlive: true}
         },
         {
-          path: '/classify',
-          name: 'classify',
-          component: classify,
+          path: '/bowl',
+          name: 'bowl',
+          component: bowl,
           meta: {keepAlive: true}
         },
         {
@@ -195,6 +200,11 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: result
+    },
+    {
+      path: '/bowl/detail',
+      name: 'bowlDetail',
+      component: bowlDetail
     }
   ]
 })
