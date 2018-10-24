@@ -3,7 +3,7 @@
     <div class="offline-tips">
       <i class="iconfont icon-duanwang offline-tips-icon"></i>
       <span class="offline-tips-txt">当前网络不稳定，请刷新重试</span>
-      <button class="offline-tips-btn" @click="refresh">立即刷新</button>
+      <button class="g-btn-orange-m g-m-t-30" @click="refresh">立即刷新</button>
     </div>
   </div>
 </template>

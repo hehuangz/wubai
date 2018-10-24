@@ -1,8 +1,5 @@
 // 用户
 import * as types from './../mutation_types'
-import {
-  getUser, createCode, userinfoUpdate
-} from '@/api/user'
 const CODE = 1
 export default {
   state: {
@@ -30,23 +27,6 @@ export default {
     }
   },
   actions: {
-    async getUser ({commit, state}, prarams) {
-      // console.log(prarams)
-      // // const Test = await getUser(prarams)
-      // // console.log(Test)
-      const { data } = await getUser(prarams)
-      commit('GLOBAL_RES', data)
-      return state.serverInfo
-    },
-    async createCode ({commit, state}, prarams) {
-      const { data } = await createCode(prarams)
-      commit('GLOBAL_RES', data)
-      return state.serverInfo
-    },
-    async userinfoUpdate ({commit, state}, prarams) {
-      const { data } = await userinfoUpdate(prarams)
-      commit('GLOBAL_RES', data)
-      return state.serverInfo
-    }
+
   }
 }

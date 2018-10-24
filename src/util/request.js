@@ -20,6 +20,10 @@ service.interceptors.response.use(
     if (response.data && response.data.code === -1) {
       Vue.$vux.toast.text(response.data.msg)
     }
+    if (response.data && response.data.code === 216) {
+      // Vue.$vux.toast.text('请先登录哟～')
+      // window.location.href = "/login"
+    }
     return response
   },
   error => {

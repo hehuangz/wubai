@@ -23,7 +23,7 @@ export default {
       tabList: [
         { name: '发工资', imageNo: require('@/assets/images/tab_money.png'), imageOn: require('@/assets/images/tab_money_checked.png') },
         { name: '聚宝盆', imageNo: require('@/assets/images/tab_love.png'), imageOn: require('@/assets/images/tab_love_checked.png') },
-        { name: '咨询', imageNo: require('@/assets/images/tab_tool.png'), imageOn: require('@/assets/images/tab_tool_checked.png') },
+        { name: '资讯', imageNo: require('@/assets/images/tab_tool.png'), imageOn: require('@/assets/images/tab_tool_checked.png') },
         { name: '我的', imageNo: require('@/assets/images/tab_my.png'), imageOn: require('@/assets/images/tab_my_checked.png') }
       ],
       uid: null,
