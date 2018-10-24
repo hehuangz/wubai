@@ -113,6 +113,12 @@ const noticeDetail = (resolve) => {
     resolve(module)
   })
 }
+// 我的工资
+const salary = (resolve) => {
+  import('@/pages/salary/index').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   mode: 'history',
@@ -236,6 +242,11 @@ export default new Router({
       path: '/notice/detail',
       name: 'noticeDetail',
       component: noticeDetail
+    },
+    {
+      path: '/salary',
+      name: 'salary',
+      component: salary
     }
   ]
 })

@@ -536,6 +536,17 @@ const getQuery = (name = '', url = '') => {
   return null
 }
 
+/**
+ * 将手机号或银行卡号转换为139****1234
+ */
+const formatStr = (str = '') => {
+  let newstr = ''
+  if (str.length < 7) {
+    return newstr
+  }
+  newstr = str.substr(0, 3) + '****' + str.substr(-4)
+  return newstr
+}
 export default {
   isInApp,
   getUidAndToken,
@@ -570,5 +581,6 @@ export default {
   contactBuyer,
   dataValidity,
   dataValidityCheck,
-  getQuery
+  getQuery,
+  formatStr
 }

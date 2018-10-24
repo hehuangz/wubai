@@ -9,7 +9,9 @@
     </div>
     <swiper auto loop :aspect-ratio="250/800" :show-dots="false">
       <swiper-item class="img" v-for="(item) in bannerList" :key="item.id">
-        <img :src="item.picUrl" alt="" @click="handleJump(item.pointUrl)">
+        <router-link :to="item.pointUrl">
+          <img :src="item.picUrl" alt="">
+        </router-link>
       </swiper-item>
     </swiper>
   </div>
