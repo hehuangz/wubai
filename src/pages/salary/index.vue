@@ -18,8 +18,8 @@
         :options="account"
         @on-change="change"
       ></radio>
+    <!-- <cell title="绑定其他账户" is-link/> -->
     </group>
-
     <div class="g-flex g-jc-c g-pd-tb-20">
       <button class="g-btn-orange-l" @click="handleBtn">申请发放工资</button>
     </div>

@@ -4,7 +4,7 @@
       <p class="g-width g-tc g-c-orange g-m-b-5">已发工资</p>
       <countup
         :start-val="0"
-        :end-val="1000"
+        :end-val="Number(topData.countAlready)"
         :duration="2"
       /> 元
     </button>
@@ -12,7 +12,7 @@
       <p class="g-width g-tc g-c-orange g-m-b-5">未发工资</p>
       <countup
         :start-val="0"
-        :end-val="1000"
+        :end-val="Number(topData.notCount)"
         :duration="2"
       /> 元
     </button>
@@ -20,7 +20,7 @@
       <p class="g-width g-tc g-c-orange g-m-b-5">累计收益</p>
       <countup
         :start-val="0"
-        :end-val="1000"
+        :end-val="Number(topData.countAll)"
         :duration="2"
       /> 元
     </button>
@@ -28,7 +28,7 @@
       <p class="g-width g-tc g-c-orange g-m-b-5">今日收益</p>
       <countup
         :start-val="0"
-        :end-val="1000"
+        :end-val="Number(topData.countNow)"
         :duration="2"
       /> 元
     </button>
@@ -36,7 +36,15 @@
 </template>
 <script>
 export default {
-  name: 'cTop'
+  name: 'cTop',
+  props: {
+    topData: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
+  }
 }
 </script>
 
