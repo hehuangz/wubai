@@ -131,6 +131,12 @@ const salaryApply = (resolve) => {
     resolve(module)
   })
 }
+// 收益明细
+const aboutus = (resolve) => {
+  import('@/pages/aboutus/index').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   mode: 'history',
@@ -269,6 +275,11 @@ export default new Router({
       path: '/salary/apply',
       name: 'salaryApply',
       component: salaryApply
+    },
+    {
+      path: '/aboutus',
+      name: 'aboutus',
+      component: aboutus
     }
   ]
 })

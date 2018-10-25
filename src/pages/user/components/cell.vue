@@ -17,10 +17,10 @@
         </grid>
       </div>
       <div class="g-fs-16 g-bg-white g-m-b-40">
-        <cell title="我的资料" link="/home" is-link></cell>
-        <cell title="我的申请" link="/home" is-link></cell>
+        <cell title="我的资料" is-link></cell>
+        <cell title="我的申请" link="/salary/apply" is-link></cell>
         <cell title="我的帖子" link="/user/myPost" is-link></cell>
-        <cell title="关于伍佰账单" link="/home" is-link></cell>
+        <cell title="关于伍佰账单" link="/aboutus" is-link></cell>
         <cell title="客服电话" is-link :value="serviceTel" @click.native="handleCall"></cell>
       </div>
     </group>

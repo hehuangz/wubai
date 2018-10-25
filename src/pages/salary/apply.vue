@@ -27,24 +27,7 @@ export default {
   },
   data () {
     return {
-      list: [
-        {
-          "id": 20,
-          "creditId": 3,
-          "creditName": "fdg",
-          "userId": "9",
-          "userName": "18357250335",
-          "isRegister": 1,
-          "createTime": "2018-10-02 20:10:16",
-          "profitUserId": "8",
-          "profitUserName": "18357250336",
-          "profitAmount": 3,
-          "state": 2,
-          "type": 2,
-          "amount": 1000,
-          "creditDate": 10
-        }
-      ],
+      list: [],
       limit: 20,
       page: 1
     }

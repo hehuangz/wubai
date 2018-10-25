@@ -16,22 +16,26 @@
         :duration="2"
       /> 元
     </button>
-    <button class="gray-item g-flex g-fw-w g-ai-c g-jc-c">
-      <p class="g-width g-tc g-c-orange g-m-b-5">累计收益</p>
-      <countup
-        :start-val="0"
-        :end-val="Number(topData.countAll)"
-        :duration="2"
-      /> 元
-    </button>
-    <button class="gray-item g-flex g-fw-w g-ai-c g-jc-c">
-      <p class="g-width g-tc g-c-orange g-m-b-5">今日收益</p>
-      <countup
-        :start-val="0"
-        :end-val="Number(topData.countNow)"
-        :duration="2"
-      /> 元
-    </button>
+    <router-link to="/salary/profit">
+      <button class="gray-item g-flex g-fw-w g-ai-c g-jc-c">
+        <p class="g-width g-tc g-c-orange g-m-b-5">累计收益</p>
+        <countup
+          :start-val="0"
+          :end-val="Number(topData.countAll)"
+          :duration="2"
+        /> 元
+      </button>
+    </router-link>
+    <router-link to="/salary/profit">
+      <button class="gray-item g-flex g-fw-w g-ai-c g-jc-c">
+        <p class="g-width g-tc g-c-orange g-m-b-5">今日收益</p>
+        <countup
+          :start-val="0"
+          :end-val="Number(topData.countNow)"
+          :duration="2"
+        /> 元
+      </button>
+    </router-link>
   </div>
 </template>
 <script>
