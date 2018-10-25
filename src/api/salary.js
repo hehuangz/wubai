@@ -17,3 +17,15 @@ export const getSureSarary = data => Axios({
   method: 'post',
   params: data
 })
+// 我的收益
+export const getProfitList = data => Axios({
+  url: '/api/tcreditAccessRecord/selectListProfit',
+  method: 'post',
+  params: data
+})
+// 我的申请
+export const getApplyList = data => Axios({
+  url: '/api/tcreditAccessRecord/selectList',
+  method: 'post',
+  params: data
+})

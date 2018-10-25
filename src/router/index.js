@@ -119,6 +119,18 @@ const salary = (resolve) => {
     resolve(module)
   })
 }
+// 收益明细
+const salaryProfit = (resolve) => {
+  import('@/pages/salary/profit').then((module) => {
+    resolve(module)
+  })
+}
+// 收益明细
+const salaryApply = (resolve) => {
+  import('@/pages/salary/apply').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   mode: 'history',
@@ -247,6 +259,16 @@ export default new Router({
       path: '/salary',
       name: 'salary',
       component: salary
+    },
+    {
+      path: '/salary/profit',
+      name: 'salaryProfit',
+      component: salaryProfit
+    },
+    {
+      path: '/salary/apply',
+      name: 'salaryApply',
+      component: salaryApply
     }
   ]
 })

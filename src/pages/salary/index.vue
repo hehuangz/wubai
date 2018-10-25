@@ -15,7 +15,6 @@
     <group title="收款账户">
       <radio
         v-model="currentAccount"
-        :selected-label-style="{color: '#ffaa22'}"
         :options="account"
         @on-change="change"
       ></radio>
@@ -24,7 +23,18 @@
     <div class="g-flex g-jc-c g-pd-tb-20">
       <button class="g-btn-orange-l" @click="handleBtn">申请发放工资</button>
     </div>
-    <c-table v-if="list && list.length" :list="list"/>
+    <c-table v-if="list && list.length">
+      <tr slot="header" class="g-fs-16 g-c-666666">
+        <th>申请金额</th>
+        <th>申请时间</th>
+        <th>申请状态</th>
+      </tr>
+      <tr slot="content" class="g-c-a0a0a0 g-fs-16" v-for="item in list" :key="item.id">
+        <td class="g-c-orange">{{item.amount}}</td>
+        <td>{{item.createTime}}</td>
+        <td class="g-c-666666">{{state[item.state]}}</td>
+      </tr>
+    </c-table>
   </div>
 </template>
 <script>
@@ -42,12 +52,18 @@ export default {
   data () {
     return {
       topData: {},
-      bankList: [],
+      // bankList: [],
       list: [],
       limit: 10,
       page: 1,
       account: [],
-      currentAccount: '002'
+      currentAccount: '',
+      state: {
+        '0': '提现申请中',
+        '1': '提现中',
+        '2': '提现成功',
+        '3': '提现失败'
+      }
     }
   },
   beforeMount () {
@@ -85,7 +101,7 @@ export default {
         page: this.page
       }
       getDataList(params).then(({ data: { code, data = {}, msg } }) => {
-        if (code === 1 && data && data.list) {
+        if (code === 1 && data.list && data.list.length) {
           this.list = data.list
         }
       }).catch((error) => {
@@ -99,6 +115,7 @@ export default {
       getSureSarary(params).then(({ data: { code, data, msg } }) => {
         if (code === 1) {
           // 申请发放工资
+          this.$vux.toast.text('成功申请！')
         }
       }).catch((error) => {
         console.log(error)
