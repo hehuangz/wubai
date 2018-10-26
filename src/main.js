@@ -42,7 +42,8 @@ import {
   Grid,
   GridItem,
   Card,
-  Radio
+  Radio,
+  LoadingPlugin
 } from 'vux'
 import VueLazyload from 'vue-lazyload'
 import MintUI from 'mint-ui'
@@ -79,6 +80,7 @@ Vue.use(ConfirmPlugin)
 Vue.use(networkListening)
 Vue.use(vueTap)
 Vue.use(MintUI)
+Vue.use(LoadingPlugin)
 // 指令
 Vue.directive('transfer-dom', TransferDom)
 // utils.localData.set('uid', 52)

@@ -6,23 +6,27 @@ const service = axios.create({
   timeout: 25000
 })
 // request拦截器
-// service.interceptors.request.use(config => {
-//   config.headers['token'] = utils.localData.get('token')
-//   return config
-// }, error => {
-//   // console.log('requestError: ', error)
-//   Promise.reject(error)
-// })
+service.interceptors.request.use(config => {
+  Vue.$vux.loading.show({
+    text: '加载中'
+  })
+  return config
+}, error => {
+  Vue.$vux.loading.hide()
+  // console.log('requestError: ', error)
+  Promise.reject(error)
+})
 
 // respone拦截器
 service.interceptors.response.use(
   response => {
+    Vue.$vux.loading.hide()
     if (response.data && response.data.code === -1) {
       Vue.$vux.toast.text(response.data.msg)
     }
     if (response.data && response.data.code === 216) {
-      // Vue.$vux.toast.text('请先登录哟～')
-      // window.location.href = "/login"
+      Vue.$vux.toast.text('请先登录!')
+      window.location.href = "/login"
     }
     return response
   },
