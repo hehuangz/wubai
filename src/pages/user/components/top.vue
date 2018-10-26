@@ -7,18 +7,23 @@
       </div>
       <i class="grade" />
     </div>
-    <swiper auto loop :aspect-ratio="250/800" :show-dots="false">
+    <v-swiper :bannerList="bannerList" :bannerHeight="200/800"/>
+    <!-- <swiper auto loop :aspect-ratio="250/800" :show-dots="false">
       <swiper-item class="img" v-for="(item) in bannerList" :key="item.id">
         <router-link :to="item.pointUrl">
           <img :src="item.picUrl" alt="">
         </router-link>
       </swiper-item>
-    </swiper>
+    </swiper> -->
   </div>
 </template>
 <script>
+import vSwiper from '@/components/vSwiper/v-swiper'
 export default {
   name: 'cTop',
+  components: {
+    vSwiper
+  },
   props: {
     userPerson: {
       type: Object,

@@ -1,7 +1,8 @@
 <template>
   <div class="home g-flex g-fd-c g-ai-c">
     <com-header title="超市" />
-    <c-swiper :bannerList="bannerList" :broadcastList="broadcastList"/>
+    <v-swiper :bannerList="bannerList" :broadcastList="broadcastList" />
+    <!-- <c-swiper :bannerList="bannerList" :broadcastList="broadcastList"/> -->
     <div class="g-width g-flex g-jc-sb g-fw-w g-bg-white g-pd-tb-30">
       <div style="height: 38px" class="g-1of2 g-flex g-ai-c g-jc-c">
         <i class="icon-common icon-credit g-m-r-10" />
@@ -33,12 +34,13 @@
 <script>
 import { getData } from '@/api/home'
 import Debounce from '@/util/debounce'
-import cSwiper from './components/swiper'
+// import cSwiper from './components/swiper'
+import vSwiper from '@/components/vSwiper/v-swiper'
 import comHeader from '@/components/header/header'
 export default {
   name: 'home',
   components: {
-    cSwiper,
+    vSwiper,
     comHeader
   },
   data () {

@@ -1,13 +1,16 @@
 <template>
   <div class="vip">
     <com-header title="购买会员" />
-    <swiper auto loop :aspect-ratio="250/800" :show-dots="false" class="g-m-tb-10">
+    <div class="g-m-tb-10">
+      <v-swiper :bannerList="bannerList" :bannerHeight="200/800"/>
+    </div>
+    <!-- <swiper auto loop :aspect-ratio="250/800" :show-dots="false" class="g-m-tb-10">
       <swiper-item class="img" v-for="(item) in bannerList" :key="item.id">
         <router-link :to="item.pointUrl">
           <img :src="item.picUrl" alt="">
         </router-link>
       </swiper-item>
-    </swiper>
+    </swiper> -->
     <c-month
       :list="vipPrices"
       :current="current"
@@ -48,13 +51,15 @@ import Debounce from '@/util/debounce'
 import comHeader from '@/components/header/header'
 import cMonth from './components/month'
 import cGroup from './components/group'
+import vSwiper from '@/components/vSwiper/v-swiper'
 import { getData, getOpenVip } from '@/api/vip'
 export default {
   name: 'vip',
   components: {
     comHeader,
     cMonth,
-    cGroup
+    cGroup,
+    vSwiper
   },
   data () {
     return {

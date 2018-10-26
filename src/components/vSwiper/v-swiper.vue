@@ -1,6 +1,6 @@
 <template>
   <div class="c-swiper">
-    <swiper auto loop :aspect-ratio="350/800" :show-dots="false">
+    <swiper auto loop :aspect-ratio="bannerHeight" :show-dots="false">
       <swiper-item class="item" v-for="(item) in bannerList" :key="item.id">
         <img :src="item.picUrl" alt="" @click="handleJump(item.pointUrl)">
       </swiper-item>
@@ -35,6 +35,12 @@
         type: Array,
         default () {
           return []
+        }
+      },
+      bannerHeight: {
+        type: Number,
+        default () {
+          return 0.45
         }
       }
     },
