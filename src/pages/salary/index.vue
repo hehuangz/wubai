@@ -133,6 +133,9 @@ export default {
   /deep/ .weui-cells {
     margin-top: 0px;
   }
+  /deep/ .weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+    color: #ffaa22;
+  }
 }
 </style>
 

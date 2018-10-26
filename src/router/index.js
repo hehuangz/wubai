@@ -137,6 +137,12 @@ const aboutus = (resolve) => {
     resolve(module)
   })
 }
+// 会员购买
+const vip = (resolve) => {
+  import('@/pages/vip/index').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   mode: 'history',
@@ -280,6 +286,11 @@ export default new Router({
       path: '/aboutus',
       name: 'aboutus',
       component: aboutus
+    },
+    {
+      path: '/vip',
+      name: 'vip',
+      component: vip
     }
   ]
 })
