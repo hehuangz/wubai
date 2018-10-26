@@ -55,7 +55,7 @@ export default {
       getSesame(params).then(({ data: { code, data, msg } }) => {
         if (code === 1) {
           this.$vux.toast.text('保存成功')
-          this.$router.push('/certification')
+          this.$router.back(-1)
         }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
@@ -65,7 +65,7 @@ export default {
       getWeChatAccount(params).then(({ data: { code, data, msg } }) => {
         if (code === 1) {
           this.$vux.toast.text('保存成功')
-          this.$router.push('/certification')
+          this.$router.back(-1)
         }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
@@ -75,7 +75,7 @@ export default {
       getTbAccount(params).then(({ data: { code, data, msg } }) => {
         if (code === 1) {
           this.$vux.toast.text('保存成功')
-          this.$router.push('/certification')
+          this.$router.back(-1)
         }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')

@@ -12,13 +12,13 @@
         link="/notice/list"
       />
     </group> -->
-    <group title="收款账户">
+    <group title="收款账户" v-if="account && account.length>0">
       <radio
         v-model="currentAccount"
         :options="account"
         @on-change="change"
       ></radio>
-    <!-- <cell title="绑定其他账户" is-link/> -->
+    <cell title="重新绑定账户" is-link link="/certification/bank"/>
     </group>
     <div class="g-flex g-jc-c g-pd-tb-20">
       <button class="g-btn-orange-l" @click="handleBtn">申请发放工资</button>

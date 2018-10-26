@@ -75,7 +75,7 @@ export default {
       getIdCard(params).then(({ data: { code, data, msg } }) => {
         if (code === 1) {
           this.$vux.toast.text('保存成功')
-          this.$router.replace('/certification')
+          this.$router.back(-1)
         }
       }).catch(() => {
         this.$vux.toast.text('网络出错，请稍后重试')
